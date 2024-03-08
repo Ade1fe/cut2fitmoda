@@ -1,10 +1,24 @@
-import { Box, Flex, Heading, Text, Button, Image } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Button, Image, Icon, FormControl, Input, Stack } from '@chakra-ui/react';
 
-import {  heroImage, newsletterImage,  testimonialImage } from '../assets';
+import {  emails, heroImage, newsletterImage,  testimonialImage } from '../assets';
 import { Products } from '.';
+import { Link } from 'react-router-dom';
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { useState } from 'react';
 
 
 const HomepageComp = () => {
+
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+    // Here you can implement the logic to submit the email (e.g., send it to a server)
+    console.log('Submitted email:', email);
+    // Reset the email input field after submission
+    setEmail('');
+  };
+  
   return (
     <Box pt='50px' className='texts'>
       {/* Hero Image */}
@@ -22,26 +36,27 @@ const HomepageComp = () => {
 
 
       {/* Product Grid */}
-      <Box py="16" px={['2','3','4','5', '6']}>
-        <Heading as="h2" fontSize="3xl" mb="0"  className='sub-titles'>Products</Heading>
+      <Box py="16" px={['4','5', '6']} mt={['2rem', '4rem', '6rem', '8rem']}>
+        <Heading as="h2" fontSize={['2xl','3xl', '4xl', "5xl"]} textAlign='center' mb={['2', '4', '6', "8"]}  className='sub-titles'>Products</Heading>
         <Products/>
       </Box>
 
       {/* Brand Story */}
       
 
-<Box bg="gray.100" py="16" px="6" textAlign="left" display={['flex']}  pos='relative'>
-
-<Flex justifyContent="center" flex='1' pos='relative'>
-            <Image src={newsletterImage} alt="Brand Story" maxW="80%" borderRadius="lg" />
+<Box bg="#f6f6f6">
+<Box  py="8rem" px="4" maxW='1340px' mx='auto' mt={['2rem', '4rem', '6rem', '8rem']} textAlign="left" display={['block','block', 'flex']} gap={['3', '4','5']} pos='relative'>
+<Text  display={['block', 'block', 'none']} textAlign='center'  as="h2" fontSize={['50px', '60px', '70px','80px', '100px']}>About us</Text>
+<Flex justifyContent="center" w={['80%', '70%', '80%', '70%']}  mx={['auto', 'auto', 'auto', '0']} flex='1' pos='relative'>
+            <Image src={newsletterImage} alt="Brand Story"  w='full' h='full' objectFit='cover' borderRadius="lg" />
         </Flex>
-        <Text pos="absolute" top={20} right='35%' as="h2" fontSize={['xx-large', '100px']}>About us</Text>
+        <Text pos={["absolute"]} display={['none', 'none', 'block']} top={40} right='30%' as="h2" fontSize={[ 'xx-large',  '100px']}>About us</Text>
     {/* Brand Story */}
     {/* Brand Story */}
-    <Box className=""  flex='1' mt='12rem'>
+    <Box className=""  flex='1' mt={[ '2rem', '2rem', '12rem', '12rem']}>
         <Box mb="2">
             <Heading fontSize="2xl" mb="2">Brand Story</Heading>
-            <Text fontSize="lg" mb="4">
+            <Text fontSize={['md', "lg"]} mb="4">
                 Our journey began with a commitment to redefine fashion through inclusivity and sustainability. Rooted in our belief that fashion should empower, not exclude, we create timeless pieces with transparency and ethical practices. Join us as we continue to inspire change in the fashion industry.
             </Text>
         </Box>
@@ -49,7 +64,7 @@ const HomepageComp = () => {
         {/* Designer Profile */}
         <Box mb="2">
             <Heading fontSize="2xl" mb="2">Designer Profile</Heading>
-            <Text fontSize="lg" mb="2">
+            <Text fontSize={['md', "lg"]} mb="2">
                 Hi, I'm [Your Name], the creative force behind our brand. Drawing inspiration from diverse cultures and nature, I strive to infuse each piece with meaning and purpose. My creative process is driven by experimentation and curiosity, constantly pushing boundaries to create pieces that resonate with our community.
             </Text>
         </Box>
@@ -57,33 +72,72 @@ const HomepageComp = () => {
         {/* Press and Media */}
         <Box mt='6'>
             <Heading fontSize="2xl" mb="2">Press and Media</Heading>
-            <Text fontSize="lg" mb="2">
+            <Text fontSize={['md', "lg"]} mb="2">
                 We're honored to have been featured in numerous publications and collaborated with esteemed partners. Explore our press highlights and media coverage to discover more about our brand's journey and impact.
             </Text>
         </Box>
+
+        <div className="">
+          <Link to="/"> <Icon as={FaWhatsapp} /> </Link>
+          <Link to="/"> <Icon as={FaInstagram} /> </Link>
+          <Link to="/"> <Icon as={FaFacebook} /> </Link>
+        </div>
     </Box>
 </Box>
 
+</Box>
 
 
       {/* Testimonials */}
       <Box py="16" >
         <Heading as="h2" fontSize="3xl" mb="8">What Our Customers Say</Heading>
-        <Flex justifyContent="center" alignItems="center">
-          <Image src={testimonialImage} alt="Testimonial" mb="4" maxW="80%" />
+        <Flex justifyContent="center" alignItems="center" w='full'>
+          <Image src={testimonialImage} alt="Testimonial" mb="4" w='full' h='full'  />
         </Flex>
         {/* Add testimonials component here */}
       </Box>
 
       {/* Newsletter Signup */}
-      <Box bg="gray.200" py="16"  textAlign="center">
-        <Heading as="h2" fontSize="3xl" mb="8">Stay Updated</Heading>
-        <Flex justifyContent="center" alignItems="center">
-          <Image src={newsletterImage} alt="Newsletter" mb="4" maxW="80%" />
-        </Flex>
-        <Text fontSize="lg" mb="8">Subscribe to our newsletter for exclusive offers and updates on new arrivals.</Text>
-        {/* Add newsletter signup form here */}
+      <Box maxW="1400px" mx="auto" p={6} display="flex" alignItems='center'>
+      <Box flex="1">
+        <Image src={emails} alt="Newsletter Image" maxW="100%" />
       </Box>
+      <Box flex="1" maxW="600px" ml={8}>
+        <Stack spacing={6}>
+          <Heading as="h1" size="xl" color="blue.600">Weekly Newsletter</Heading>
+          <Text fontSize="lg" color="gray.600">
+            Welcome to our weekly newsletter. Here's what's been happening in our community.
+          </Text>
+          <Stack spacing={4}>
+            <Box>
+              <Heading as="h2" size="lg">Recent News</Heading>
+              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+            </Box>
+            <Box>
+              <Heading as="h2" size="lg">Featured Article</Heading>
+              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+            </Box>
+            <Box>
+              <Heading as="h2" size="lg">Upcoming Events</Heading>
+              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+            </Box>
+          </Stack>
+          <form onSubmit={handleSubmit}>
+            <FormControl>
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                size="md"
+                focusBorderColor="blue.400"
+              />
+            </FormControl>
+            <Button type="submit" colorScheme="blue" size="md">Subscribe</Button>
+          </form>
+        </Stack>
+      </Box>
+    </Box>
     </Box>
   );
 };
