@@ -64,7 +64,7 @@ const Products = () => {
     };
 
     return (
-        <Box py="4">
+        <Box py="4" maxW='1340px' mx='auto'>
             <Box mb="6"  p={2} bg='#f2f4f3'  rounded='md'>
                 <Input
                     placeholder="Search products..."
