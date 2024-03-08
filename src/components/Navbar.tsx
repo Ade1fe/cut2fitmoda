@@ -15,7 +15,7 @@ const Navbar = () => {
         <Spacer />
         <Box display={{ base: 'none', md: 'block' }}>
           <Link href="#" mr="8">Home</Link>
-          <Link href="#" mr="8">Shop</Link>
+          <Link href="#" mr="8">Products</Link>
           <Link href="#" mr="8">About</Link>
           <Link href="#">Contact</Link>
         </Box>
@@ -29,7 +29,7 @@ const Navbar = () => {
       {isOpen && (
         <Box mt="4" display={{ base: 'block', md: 'none' }}>
           <Link href="#" display="block" mb="2">Home</Link>
-          <Link href="#" display="block" mb="2">Shop</Link>
+          <Link href="#" display="block" mb="2">Products</Link>
           <Link href="#" display="block" mb="2">About</Link>
           <Link href="#" display="block">Contact</Link>
         </Box>
