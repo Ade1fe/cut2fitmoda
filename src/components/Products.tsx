@@ -108,7 +108,7 @@ const Products = () => {
             </Box>
             <Box display='grid' alignItems='flex-start' gridTemplateColumns={['repeat(auto-fit, minmax(150px, 1fr))','repeat(auto-fit, minmax(180px, 1fr))','repeat(auto-fit, minmax(200px, 1fr))','repeat(auto-fit, minmax(230px, 1fr))','repeat(auto-fit, minmax(250px, 1fr))']} gap="4">
     {currentProducts.map((product) => (
-        <Box key={product.id} mx='auto' shadow='md' overflow='hidden' borderRadius="lg" w='fit-content' pb='5'>
+        <Box key={product.id} mx='auto'  shadow='md' overflow='hidden' borderRadius="lg" w='fit-content' pb='5'>
             <Box  mb="2" bg='#f1f1f1'  p="4">
                 <Image w='full' h='full' objectFit='contain' src={product.image} alt={product.name}/>
             </Box>

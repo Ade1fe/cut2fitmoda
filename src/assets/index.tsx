@@ -8,7 +8,7 @@ export {default as testimonialImage} from './images/totes1.jpeg';
 export {default as newsletterImage} from './images/totes1.jpeg';
 export {default as headband1} from './images/1-removebg-preview.png';
 export {default as headband2} from './images/17_dd321fe4-c31e-4b74-9b98-548d4a601a0b-removebg-preview.png';
-export {default as headband3} from './images/1b3bdffdc4775a3a77e9eede208fce0f-removebg-preview.png';
+export {default as headband3} from './images/workplease.png';
 export {default as headband4} from './images/1eab3449cba6b50922760ed5b0880e19-removebg-preview (1).png';
 export {default as headband5} from './images/41Un7m8HUPL._SS600_-removebg-preview.png';
 export {default as headband6} from './images/5f2c7e640db8469af0230878660970b9-removebg-preview.png';
