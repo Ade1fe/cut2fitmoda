@@ -28,7 +28,7 @@ const HomepageComp = () => {
           <Image h={['full']} w={['full']} objectFit='cover' src={heroImage} alt="Hero Image" mb="8" mx="auto" zIndex="0" />
         </Box>
         <Box position="absolute" px='4' w={['full','full', '70%', 'fit-content']} top="50%" left="50%" transform="translate(-50%, -50%)" zIndex="3">
-          <Heading as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>Explore Our Latest Collection</Heading>
+          <Heading as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>xplore Our Latest Collection</Heading>
           <Text fontSize="xl" mb={['4','5','6','7', "9"]} textShadow='2px 1px black'>Chic head bonnets and accessories await, perfect for adding flair to any outfit. Make your fashion statement or find crafting materials. Shop now and unleash your creativity.</Text>
           <Button bg='#b07d62' rounded='md' px='4' py='2' size="lg">Shop Now</Button>
         </Box>
