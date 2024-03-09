@@ -1,6 +1,8 @@
 .logo{
-    font-family: "Whisper", cursive;
-    font-weight: 400;
+    /* font-family: "Whisper", cursive;
+    font-weight: 400; */
+    font-family: "Creepster", system-ui;
+  font-weight: 400;
 }
 
 .sub-titles{
