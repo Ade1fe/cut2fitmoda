@@ -20,7 +20,7 @@ const HomepageComp = () => {
   };
   
   return (
-    <Box mt='5rem'  className='texts'>
+    <Box mt='4rem'  className='texts'>
       {/* Hero Image */}
       <Box bg="white" mb={['2rem']} color='white' textAlign="center" position='relative'>
         <Box w={['full']} h={['650px', '690px', '730px', '750px', '770px']}>
