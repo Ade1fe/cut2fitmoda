@@ -20,15 +20,15 @@ const HomepageComp = () => {
   };
   
   return (
-    <Box pt='50px' className='texts'>
+    <Box mt='5rem'  className='texts'>
       {/* Hero Image */}
       <Box bg="white" mb={['2rem']} color='white' textAlign="center" position='relative'>
-        <Box w={['full']} h={['650px', '600px', '650px', '750px', '770px']}>
+        <Box w={['full']} h={['650px', '690px', '730px', '750px', '770px']}>
           <Box position="absolute" top="0" left="0" right="0" bottom="0" bg="rgba(0, 0, 0, 0.5)" zIndex="1"></Box>
           <Image h={['full']} w={['full']} objectFit='cover' src={heroImage} alt="Hero Image" mb="8" mx="auto" zIndex="0" />
         </Box>
         <Box position="absolute" px='4' w={['full','full', '70%', 'fit-content']} top="50%" left="50%" transform="translate(-50%, -50%)" zIndex="3">
-          <Heading as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>xplore Our Latest Collection</Heading>
+          <Heading as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>Explore Our Latest Collection</Heading>
           <Text fontSize="xl" mb={['4','5','6','7', "9"]} textShadow='2px 1px black'>Chic head bonnets and accessories await, perfect for adding flair to any outfit. Make your fashion statement or find crafting materials. Shop now and unleash your creativity.</Text>
           <Button bg='#b07d62' rounded='md' px='4' py='2' size="lg">Shop Now</Button>
         </Box>
