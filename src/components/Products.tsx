@@ -10,7 +10,7 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { headband1, headband11, headband12, headband13, headband14, headband15, headband16, headband17, headband18, headband19, headband2, headband20, headband21, headband22, headband23, headband24, headband25, headband26, headband27, headband28, headband29, headband3, headband30, headband31, headband4, headband5, headband6, headband7, headband8, headband9 } from '../assets';
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaWhatsapp } from 'react-icons/fa';
 
 interface Product {
     id: number;
@@ -88,6 +88,23 @@ const Products = () => {
         }
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const shareOnWhatsApp = async (productId: number, productName: string, productPrice: number,) => {
+        const message = `Product ID: ${productId}\nHello I want to buy: ${productName}\nPrice: ${productPrice}\n`;
+    
+        // Prepare the WhatsApp link with the message containing the image URL
+        const whatsappLink = `https://wa.me/2349038257434?text=${encodeURIComponent(message)}`;
+    
+        // Open the WhatsApp link in a new tab
+        window.open(whatsappLink, '_blank');
+    };
+    
+    
+    
+    
+    
+
+
     return (
         <Box py="4" maxW='1340px' mx='auto'>
             <Box mb="6"  p={2} bg='#f2f4f3'  rounded='md'>
@@ -157,6 +174,8 @@ const Products = () => {
                 <Text fontSize="sm" pt={1}  color="gray.500"  borderTopWidth='2px' borderTopColor='#f4f4f6'>
                     {product.category}
                 </Text>
+                <Button onClick={() => shareOnWhatsApp(product.id, product.name, product.price,)}><Icon as={FaWhatsapp} /> Send a message</Button>
+
             </Box>
         </Box>
     ))}

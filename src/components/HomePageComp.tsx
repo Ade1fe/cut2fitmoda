@@ -85,19 +85,19 @@ const HomepageComp = () => {
             <Icon as={SiStylelint} boxSize={[39]} color='gray.600' />
             <Text mb='0px' className='sub-titles' fontSize={['md','lg']} fontWeight='600'>Stylish Designs</Text>
             <Text mb='0px' color="gray.600">I've never felt more confident in my outfits since I started shopping here. The designs are always so trendy and unique!</Text>
-            <Text mb='0px' fontWeight='bold'>- Emily Smith</Text>
+            <Text mb='0px' fontWeight='bold'>- Ayojesu Alpha</Text>
           </Box>
           <Box p='10' shadow='2xl' h='300px' display='flex' flexDir='column' alignItems='center' justifyContent='center' gap='6' borderRadius='20px'> 
             <Icon as={FaTruck} boxSize={[39]} color='blue.800' />
             <Text mb='0px' className='sub-titles' fontSize={['md','lg']} fontWeight='600'>Fast Shipping</Text>
             <Text mb='0px' color="gray.600">I'm amazed by how quickly my orders arrive. It's like Christmas every time I receive a package from your store!</Text>
-            <Text mb='0px' fontWeight='bold'>- Alex Johnson</Text>
+            <Text mb='0px' fontWeight='bold'>- Miriam Adeniyi</Text>
           </Box>
           <Box p='10' shadow='base' h='300px' display='flex' flexDir='column' alignItems='center' justifyContent='center' gap='6' borderRadius='20px'> 
             <Icon as={TbNeedleThread} boxSize={[39]} color='gray.700' />
             <Text mb='0px' className='sub-titles' fontSize={['md','lg']} fontWeight='600'>Quality Fabrics</Text>
             <Text mb='0px' color="gray.600">The fabric of your clothing is so comfortable and durable. I've washed my favorite dress countless times, and it still looks brand new!</Text>
-            <Text mb='0px' fontWeight='bold'>- Jessica Brown</Text>
+            <Text mb='0px' fontWeight='bold'>- Chioma Ude</Text>
           </Box>
         </Box>
       </Box>
