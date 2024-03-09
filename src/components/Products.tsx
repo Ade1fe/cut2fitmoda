@@ -174,7 +174,7 @@ const Products = () => {
                 <Text fontSize="sm" pt={1}  color="gray.500"  borderTopWidth='2px' borderTopColor='#f4f4f6'>
                     {product.category}
                 </Text>
-                <Button onClick={() => shareOnWhatsApp(product.id, product.name, product.price,)}><Icon as={FaWhatsapp} /> Send a message</Button>
+                <Button onClick={() => shareOnWhatsApp(product.id, product.name, product.price,)}><Icon as={FaWhatsapp} mr='1' color='green.600' /> Send a message</Button>
 
             </Box>
         </Box>

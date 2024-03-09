@@ -68,9 +68,9 @@ const HomepageComp = () => {
               </Text>
             </Box>
             <Box display="flex" gap='3' mt='4'>
-              <Link to="/"> <Icon as={FaWhatsapp} boxSize={['6']} color='green.600' /> </Link>
-              <Link to="/"> <Icon as={FaInstagram} boxSize={['6']} color='red.600' /> </Link>
-              <Link to="/"> <Icon as={FaFacebook} boxSize={['6']} color='blue.600' /> </Link>
+              <Link to="https://wa.me/2349038257434"> <Icon as={FaWhatsapp} boxSize={['6']} color='green.600' /> </Link>
+              <Link to="https://instagram.com/deife_syntax"> <Icon as={FaInstagram} boxSize={['6']} color='red.600' /> </Link>
+              <Link to="https://web.facebook.com/johanna.adams.3576"> <Icon as={FaFacebook} boxSize={['6']} color='blue.600' /> </Link>
             </Box>
           </Box>
         </Box>
