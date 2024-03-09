@@ -23,7 +23,7 @@ const HomepageComp = () => {
     <Box pt='50px' className='texts'>
       {/* Hero Image */}
       <Box bg="white" mb={['2rem']} color='white' textAlign="center" position='relative'>
-        <Box w={['full']} h={['550px', '600px', '650px', '750px', '770px']}>
+        <Box w={['full']} h={['650px', '600px', '650px', '750px', '770px']}>
           <Box position="absolute" top="0" left="0" right="0" bottom="0" bg="rgba(0, 0, 0, 0.5)" zIndex="1"></Box>
           <Image h={['full']} w={['full']} objectFit='cover' src={heroImage} alt="Hero Image" mb="8" mx="auto" zIndex="0" />
         </Box>
