@@ -5,7 +5,7 @@ export {default as productImage2} from './images/totes1.jpeg';
 export {default as productImage3} from './images/totes1.jpeg';
 export {default as brandImage} from './images/totes1.jpeg';
 export {default as testimonialImage} from './images/totes1.jpeg';
-export {default as newsletterImage} from './images/vecteezy_ai-generated-the-london-model-is-wearing-a-grey-turtle-neck_37168307.jpg';
+export {default as newsletterImage} from './images/vecteezy_ai-generated-the-london-model-is-wearing-a-grey-turtle-neck_37168307-CCgu3ZbT.jpg';
 export {default as headband1} from './images/1-removebg-preview.png';
 export {default as headband2} from './images/17_dd321fe4-c31e-4b74-9b98-548d4a601a0b-removebg-preview.png';
 export {default as headband3} from './images/71uf6hiaoPL._AC_UF1000_1000_QL80_-removebg-preview (1).png';
@@ -44,12 +44,18 @@ export {default as headband30} from './images/twisted-matte-satin-crepe-headband
 
 
 export {default as headband31} from './images/il_1080xN.4663256191_b1n8-removebg-preview.png';
-// export {default as headband2} from './images/17_dd321fe4-c31e-4b74-9b98-548d4a601a0b-removebg-preview.png';
-// export {default as headband3} from './images/workplease.png';
-// export {default as headband4} from './images/1eab3449cba6b50922760ed5b0880e19-removebg-preview (1).png';
-// export {default as headband5} from './images/41Un7m8HUPL._SS600_-removebg-preview.png';
-// export {default as headband6} from './images/5f2c7e640db8469af0230878660970b9-removebg-preview.png';
-// export {default as headband7} from './images/61IiR6ZypJL._AC_UF1000_1000_QL80_-removebg-preview.png';
-// export {default as headband8} from './images/71sX-3TCQXL._AC_UF1000_1000_QL80_-removebg-preview.png';
-// export {default as headband9} from './images/81sxMjGJ4PL._AC_UY1000_-removebg-preview.png';
-// export {default as emails} from './images/vecteezy_group-of-business-people-during-break-from-the-work-taking_12509880.jpg';
+export {default as nativeattriea} from './images/nativeattires.jpg';
+export {default as shirtimg} from './images/shirts.jpg';
+export {default as pantsimg} from './images/pants.jpg';
+export {default as collarshirt} from './images/collarsshirt.jpg';
+export {default as headbon} from './images/headbon.jpg';
+export {default as native2} from './images/native2atta.jpg';
+export {default as shirt2} from './images/shirt2.jpg';
+export {default as pants2} from './images/pants2.jpg';
+export {default as vintage} from './images/vintag2.jpg';
+// export {default as shirt2} from './images/';
+// export {default as shirt2} from './images/';
+// export {default as shirt2} from './images/';
+// export {default as shirt2} from './images/';
+// export {default as shirt2} from './images/';
+// export {default as shirt2} from './images/';

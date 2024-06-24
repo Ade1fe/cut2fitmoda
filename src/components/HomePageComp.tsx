@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Box, Flex, Heading, Text, Button, Image, Icon, FormControl, Input, Stack } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaTruck, FaWhatsapp } from 'react-icons/fa';
-import { Products } from '.';
+import { BrowseCategories, Products } from '.';
 import { Link } from 'react-router-dom';
 import { emails, heroImage, newsletterImage } from '../assets';
 import { HiOutlinePhone } from 'react-icons/hi';
@@ -36,8 +36,9 @@ const HomepageComp = () => {
 
       {/* Product Grid */}
       <Box py="16" px={['4','5', '6']} mt={['2rem', '4rem', '6rem', '8rem']}>
-        <Heading as="h2" fontSize={['3xl','3xl', '4xl', "5xl"]} textAlign='center' mb={['2', '4', '6', "8"]}  className='sub-titles' textShadow='2px 1px #b07d62'>Products</Heading>
-        <Products/>
+        <Heading as="h2" fontSize={['3xl','3xl', '4xl', "5xl"]} textAlign='center' mb={['2', '4', '6', "8"]}  className='sub-titles' textShadow='2px 1px #b07d62'>Browse Our Collection</Heading>
+        {/* <Products/> */}
+        <BrowseCategories />
       </Box>
 
       {/* Brand Story */}
