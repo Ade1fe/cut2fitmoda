@@ -1,4 +1,5 @@
-// export {default as CartDrawer} from './Navbar';
+// export {default as Note} from './Navbar';
+export {default as Note}from './Note';
 export {default as CartDrawer}  from './CartDrawer';
 export {default as Footer}from './Footer';
 export {default as BrowseCategories} from './BrowseCategories';

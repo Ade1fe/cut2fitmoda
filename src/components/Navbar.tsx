@@ -8,7 +8,7 @@ import { db } from '../firebase';
 import { Box, Flex, Spacer, Link, IconButton, useDisclosure, Collapse } from '@chakra-ui/react';
 import { CgClose } from 'react-icons/cg';
 import { IoMenuSharp } from 'react-icons/io5';
-import { CartDrawer } from '.';
+import { CartDrawer, Note } from '.';
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -60,14 +60,15 @@ const Navbar = () => {
           <Link href="/" fontWeight="bold">CUT2FIT-MODA</Link>
         </Box>
         <Spacer />
-        <Box display={{ base: 'none', lg: 'block' }} fontSize={['md', 'lg']} fontWeight="600">
+        <Box display={{ base: 'none', lg: 'block' }} fontSize={['md']} fontWeight="600">
           <Link href="/products" mr="8" style={isActive('/products')}>All Products</Link>
           <Link href="/items/Native-Wears" mr="8" style={isActive('/items/Native-Wears')}>Native Wears</Link>
           {isAdmin && <Link href="/admin" mr="8" style={isActive('/admin')}>Admin</Link>}
           <Link href="/items/Dresses" mr="8" style={isActive('/items/Dresses')}>Dress</Link>
           <Link href="/items/Accessories" mr="8" style={isActive('/items/Accessories')}>Accessories</Link>
           <Link href="/items/Head-Accessories" style={isActive('/items/Head-Accessories')}>Head Accessories</Link>
-          <Link  > <CartDrawer /> </Link>
+          <Link ml="8" _hover={{textDecoration: "none"}}> <CartDrawer /> </Link>
+          <Link ml="8" _hover={{textDecoration: "none"}}> <Note /> </Link>
           {!currentUser && <Link href="/login" mr="8" style={isActive('/login')}>Login</Link>}
         </Box>
         <IconButton
@@ -89,6 +90,8 @@ const Navbar = () => {
           <Link href="/items/Dresses" mr="8" style={isActive('/items/Dresses')}>Dress</Link>
           <Link href="/items/Accessories" mr="8" style={isActive('/items/Accessories')}>Accessories</Link>
           <Link href="/items/Head-Accessories" style={isActive('/items/Head-Accessories')}>Head Accessories</Link>
+          <Link ml="8" _hover={{textDecoration: "none"}}> <CartDrawer /> </Link>
+          <Link ml="8" _hover={{textDecoration: "none"}}> <Note /> </Link>
           {!currentUser && <Link href="/login" mr="8" style={isActive('/login')}>Login</Link>}
         </Box>
       </Collapse>
