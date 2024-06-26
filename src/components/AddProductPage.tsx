@@ -251,6 +251,10 @@ const categories: Categories = {
   "Shorts and Pants": ["Cargo Pants", "Chinos", "Denim Shorts", "Joggers"],
   "T-Shirts and Shirts": ["Polo Shirts", "Button-Down Shirts", "Tees", "Long Sleeve"],
   "Head Accessories": ["Caps", "Hats", "Headbands", "Scarves"],
+  "Dresses":["Casual dresses", "Glam dresses", "Maxi dresses", "Shirt dresses", "Work dresses", "Wrap dresses"],
+  "Accessories": ["Bags","Belts","Bracelets","Earrings", "Necklaces", "Rings", ""],
+
+
 };
 
 const AddProductPage: React.FC = () => {

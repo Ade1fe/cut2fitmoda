@@ -1,175 +1,279 @@
 
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Box, VStack, Heading, Text, Image, Spinner, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
-import { query, collection, where, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+// import { useEffect, useState } from 'react';
+// import { useParams, Link, useNavigate } from 'react-router-dom';
+// import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Box, VStack, Text, Image, Spinner, Menu, MenuButton, MenuList, MenuItem, SimpleGrid, Button, Icon, Flex, Input } from '@chakra-ui/react';
+// import { query, collection, where, getDocs, limit, startAfter } from 'firebase/firestore';
+// import { db } from '../firebase';
+// import { RxSlash } from 'react-icons/rx';
+// import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaSearch, FaWhatsapp } from 'react-icons/fa';
+// import { MainLayout } from '../pages';
 
-const ListofItemsComp = () => {
-  const { category: categoryParam } = useParams<{ category: string }>();
-  const [items, setItems] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [currentCategory, setCurrentCategory] = useState<string>(''); // Here is the currentCategory state
-  const [subcategories, setSubcategories] = useState<string[]>([]);
+// const ITEMS_PER_PAGE = 10;
 
-  useEffect(() => {
-    if (!categoryParam) {
-      console.error('Category parameter is missing.');
-      return;
-    }
+// const ListofItemsComp = () => {
+//   const { category: categoryParam } = useParams<{ category: string }>();
+//   const [items, setItems] = useState<any[]>([]);
+//   const [loading, setLoading] = useState(false);
+//   const [currentCategory, setCurrentCategory] = useState<string>('');
+//   const [subcategories, setSubcategories] = useState<string[]>([]);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [lastVisible, setLastVisible] = useState<any>(null);
+//   const [totalProducts, setTotalProducts] = useState<number>(0);
+//   const history = useNavigate();
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [showSearch, setShowSearch] = useState(false);
 
-    setCurrentCategory(categoryParam);
+//   useEffect(() => {
+//     if (!categoryParam) {
+//       console.error('Category parameter is missing.');
+//       return;
+//     }
 
-    const fetchItems = async () => {
-      setLoading(true);
-      try {
-        let q: any;
+//     setCurrentCategory(categoryParam);
+//     fetchItems(1);
 
-        // Check if the category has subcategories (e.g., Native Wears > Ankara)
-        if (categoryParam.includes(' > ')) {
-          const [mainCategory, subCategory] = categoryParam.split(' > ');
-          q = query(
-            collection(db, 'products'),
-            where('category', '==', categoryParam)
-          );
-        } else {
-          // Handle main category case
-          q = query(
-            collection(db, 'products'),
-            where('category', '>=', categoryParam),
-            where('category', '<', `${categoryParam}\uf8ff`)
-          );
-        }
+//     const fetchSubcategories = async () => {
+//       try {
+//         const querySnapshot = await getDocs(collection(db, 'products'));
+//         const fetchedSubcategories: string[] = [];
 
-        const querySnapshot = await getDocs(q);
-        const fetchedItems = querySnapshot.docs.map(doc => {
-          const data = doc.data() as {
-            title: string;
-            description: string;
-            imageUrl: string;
-            price: number;
-            // Add more fields as needed
-          };
-          return {
-            id: doc.id,
-            title: data.title,
-            description: data.description,
-            imageUrl: data.imageUrl,
-            price: data.price
-            // Add more fields from data as needed
-          };
-        });
-        
-        setItems(fetchedItems);
-      } catch (error) {
-        console.error('Error fetching items:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+//         querySnapshot.forEach(doc => {
+//           const category = doc.data().category;
+//           if (category.startsWith(currentCategory)) {
+//             const parts = category.split(' > ');
+//             const subCategoryIndex = parts.indexOf(currentCategory.split(' > ').pop()!);
+//             const subCategory = parts[subCategoryIndex + 1];
+//             if (subCategory && !fetchedSubcategories.includes(subCategory)) {
+//               fetchedSubcategories.push(subCategory);
+//             }
+//           }
+//         });
 
-    const fetchSubcategories = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'products'));
-        const fetchedSubcategories: string[] = [];
+//         setSubcategories(fetchedSubcategories);
+//       } catch (error) {
+//         console.error('Error fetching subcategories:', error);
+//       }
+//     };
 
-        querySnapshot.forEach(doc => {
-          const category = doc.data().category;
-          if (category.startsWith(currentCategory)) {
-            const [, subCategory] = category.split(' > ');
-            if (subCategory && !fetchedSubcategories.includes(subCategory)) {
-              fetchedSubcategories.push(subCategory);
-            }
-          }
-        });
+//     const fetchTotalProducts = async () => {
+//       try {
+//         let q: any;
+//         if (currentCategory.includes(' > ')) {
+//           q = query(
+//             collection(db, 'products'),
+//             where('category', '==', currentCategory)
+//           );
+//         } else {
+//           q = query(
+//             collection(db, 'products'),
+//             where('category', '>=', currentCategory),
+//             where('category', '<=', `${currentCategory}\uf8ff`)
+//           );
+//         }
 
-        setSubcategories(fetchedSubcategories);
-      } catch (error) {
-        console.error('Error fetching subcategories:', error);
-      }
-    };
+//         const querySnapshot = await getDocs(q);
+//         setTotalProducts(querySnapshot.size);
+//       } catch (error) {
+//         console.error('Error fetching total products:', error);
+//       }
+//     };
 
-    fetchItems();
-    fetchSubcategories();
-  }, [categoryParam, currentCategory]);
+//     fetchSubcategories();
+//     fetchTotalProducts();
+//   }, [categoryParam, currentCategory]);
 
-  if (!categoryParam) {
-    return (
-      <Box p={4}>
-        <Text>No category specified.</Text>
-      </Box>
-    );
-  }
+//   const fetchItems = async (page: number) => {
+//     setLoading(true);
+//     try {
+//       let q: any;
+//       if (currentCategory.includes(' > ')) {
+//         q = query(
+//           collection(db, 'products'),
+//           where('category', '==', currentCategory),
+//           limit(ITEMS_PER_PAGE)
+//         );
+//       } else {
+//         q = query(
+//           collection(db, 'products'),
+//           where('category', '>=', currentCategory),
+//           where('category', '<=', `${currentCategory}\uf8ff`),
+//           limit(ITEMS_PER_PAGE)
+//         );
+//       }
 
-  // Split categoryParam to show breadcrumb correctly
-  const categoryParts = categoryParam.split(' > ');
+//       if (searchTerm) {
+//         q = query(
+//           q,
+//           where('title', '>=', searchTerm.toLowerCase()),
+//           where('title', '<=', searchTerm.toLowerCase() + '\uf8ff')
+//         );
+//       }
 
-  const handleSubcategoryClick = (subcategory: string) => {
-    setCurrentCategory(`${currentCategory} > ${subcategory}`);
-  };
+//       if (page > 1 && lastVisible) {
+//         q = query(q, startAfter(lastVisible));
+//       }
 
-  return (
-    <Box p={4}>
-      <Breadcrumb spacing="8px" separator=">">
-        <BreadcrumbItem>
-          <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        {categoryParts.map((part, index) => (
-          <BreadcrumbItem key={index} isCurrentPage={index === categoryParts.length - 1}>
-            {index === categoryParts.length - 1 ? (
-              <BreadcrumbLink>{part}</BreadcrumbLink>
-            ) : (
-              <BreadcrumbLink as={Link} to={`/items/${part}`}>{part}</BreadcrumbLink>
-            )}
-          </BreadcrumbItem>
-        ))}
-        {subcategories.length > 0 && (
-          <BreadcrumbItem>
-            <Menu>
-              <MenuButton as={BreadcrumbLink} cursor="pointer">
-                Subcategories
-              </MenuButton>
-              <MenuList>
-                {subcategories.map((subcategory, index) => (
-                  <MenuItem key={`${subcategory}-${index}`} onClick={() => handleSubcategoryClick(subcategory)}>
-                    {subcategory}
-                  </MenuItem>
-                ))}
-              </MenuList>
-            </Menu>
-          </BreadcrumbItem>
-        )}
-      </Breadcrumb>
+//       const querySnapshot = await getDocs(q);
+//       const fetchedItems = querySnapshot.docs.map(doc => {
+//         const data = doc.data() as {
+//           title: string;
+//           description: string;
+//           imageUrl: string;
+//           price: number;
+//         };
+//         return {
+//           id: doc.id,
+//           title: data.title,
+//           description: data.description,
+//           imageUrl: data.imageUrl,
+//           price: data.price
+//         };
+//       });
 
-      <VStack mt={4} align="stretch" spacing={4}>
-        <Heading as="h1" size="xl">
-          {currentCategory}
-        </Heading>
+//       setItems(fetchedItems);
+//       setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
+//       setCurrentPage(page);
+//     } catch (error) {
+//       console.error('Error fetching items:', error);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
 
-        {loading ? (
-          <Spinner />
-        ) : items.length === 0 ? (
-          <Text>No products available in this category.</Text>
-        ) : (
-          items.map((item) => (
-            <Box key={item.id} borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="md">
-              <Image src={item.imageUrl} alt={item.title} />
+//   const categoryParts = currentCategory.split(' > ');
 
-              <Box p="6">
-                <Heading size="md" my="2">
-                  {item.title}
-                </Heading>
-                <Text>{item.description}</Text>
-                <Text fontSize="lg" fontWeight="bold" mt="2">
-                  ${item.price}
-                </Text>
-              </Box>
-            </Box>
-          ))
-        )}
-      </VStack>
-    </Box>
-  );
-};
+//   const handleSubcategoryClick = (subcategory: string) => {
+//     const newCategory = `${currentCategory} > ${subcategory}`;
+//     setCurrentCategory(newCategory);
+//     history(`/items/${newCategory}`);
+//   };
 
-export default ListofItemsComp;
+//   const filteredProducts = items.filter((item) => {
+//     const productName = item.title?.toLowerCase() || '';
+//     return productName.includes(searchTerm.toLowerCase());
+//   });
+
+//   const shareOnWhatsApp = (productId: string, productPrice: number, productName?: string) => {
+//     const message = `Product ID: ${productId}\nHello I want to buy: ${productName}\nPrice: ${productPrice}\n`;
+//     const whatsappLink = `https://wa.me/2349038257434?text=${encodeURIComponent(message)}`;
+//     window.open(whatsappLink, '_blank');
+//   };
+
+//   // Calculate the range of items being displayed
+//   const startItemIndex = (currentPage - 1) * ITEMS_PER_PAGE + 1;
+//   const endItemIndex = Math.min(startItemIndex + items.length - 1, startItemIndex + ITEMS_PER_PAGE - 1);
+
+//   return (
+//     <MainLayout>
+//       <Box mb='3rem' mt='5rem' bg="#f6f6f6" py='3rem' px={['2','4','8','14','6rem']} className="" color='#949494' fontSize={['sm','md']}>
+//         <Breadcrumb spacing="8px" separator={<RxSlash color='#b07d62' />}>
+//           <BreadcrumbItem>
+//             <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
+//           </BreadcrumbItem>
+//           {categoryParts.map((part, index) => (
+//             <BreadcrumbItem key={index} isCurrentPage={index === categoryParts.length - 1}>
+//               {index === categoryParts.length - 1 ? (
+//                 <BreadcrumbLink>{part}</BreadcrumbLink>
+//               ) : (
+//                 <BreadcrumbLink as={Link} to={`/items/${categoryParts.slice(0, index + 1).join(' > ')}`}>{part}</BreadcrumbLink>
+//               )}
+//             </BreadcrumbItem>
+//           ))}
+//           {subcategories.length > 0 && (
+//             <BreadcrumbItem>
+//               <Menu>
+//                 <MenuButton as={BreadcrumbLink} cursor="pointer">
+//                   Subcategories
+//                 </MenuButton>
+//                 <MenuList>
+//                   {subcategories.map((subcategory, index) => (
+//                     <MenuItem key={`${subcategory}-${index}`} onClick={() => handleSubcategoryClick(subcategory)}>
+//                       {subcategory}
+//                     </MenuItem>
+//                   ))}
+//                 </MenuList>
+//               </Menu>
+//             </BreadcrumbItem>
+//           )}
+//         </Breadcrumb>
+//       </Box>
+
+//       <VStack mb='8rem' mt={4} align="stretch" spacing={4} maxW='1340px' mx='auto' px='2'>
+//         {loading ? (
+//           <Spinner />
+//         ) : filteredProducts.length === 0 ? (
+//           <Text>No products match your search.</Text>
+//         ) : (
+//           <>
+//           <Box px='2' className="" justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
+//           <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text>
+//             <Flex w={['full', '60%']} justify="flex-end" mb="2" align="center" gap='2'>
+//               {showSearch && (
+//                 <Box w={['full', '60%']} p={2} rounded="md" bg="#f6f6f6" shadow='md'>
+//                   <Flex align="center" >
+//                     <Icon as={FaSearch} color="gray.500" />
+//                     <Input
+//                       placeholder="Search products..."
+//                       value={searchTerm}
+//                       onChange={(e) => setSearchTerm(e.target.value)}
+//                       p="2"
+//                       rounded="md"
+//                       bg="#f6f6f6"
+//                       border="none"
+//                       focusBorderColor="#b07d62"
+//                       _placeholder={{ color: 'gray.400' }}
+//                       ml={2}
+//                       mt='2'
+//                     />
+//                   </Flex>
+//                 </Box>
+//               )}
+//               <Button
+//                 onClick={() => setShowSearch(!showSearch)}
+//                 bg="transparent"
+//                 color="gray.600"
+//                 _hover={{ shadow: 'base' }}
+//                 _focus={{ outline: 'none' }}
+//               >
+//                 <Icon as={FaSearch} boxSize="6" />
+//               </Button>
+//             </Flex>
+//           </Box>
+//             <SimpleGrid columns={{ base: 2, md: 3, lg: 4, xl: 5 }} spacing="3">
+//               {filteredProducts.map((item) => (
+//                 <Box key={item.id} shadow='md' overflow='hidden' borderRadius="lg" bg="white">
+//                   <Image w="full" h={['200px', '230px', '260px', "290px", "350px"]} objectFit="cover" src={item.imageUrl} alt={item.title} />
+//                   <Box px="4" py='2'>
+//                     <Text mb="1" fontWeight="bold" fontSize={['md', 'lg']}>
+//                       {item.title}
+//                     </Text>
+//                     <Text mb="1" color="gray.600" fontSize={['sm', 'md']}>
+//                       Price: #{item.price}
+//                     </Text>
+//                     <Text fontSize="sm" pt={1} color="gray.500" borderTopWidth="2px" borderTopColor="#f4f4f6">
+//                       {item.category}
+//                     </Text>
+//                     <Button bg='transparent' _hover={{bg: "none", shadow: "base"}} display='flex' justifyContent='flex-start' w="full" fontSize="sm" onClick={() => shareOnWhatsApp(item.id, item.price, item.title)}>
+//                       <Icon as={FaWhatsapp} mr="1" color="green.600" /> Send a message
+//                     </Button>
+//                   </Box>
+//                 </Box>
+//               ))}
+//             </SimpleGrid>
+//             <Box display="flex" gap='3' justifyContent="flex-end" alignItems="center" mt={4}>
+//               <Button onClick={() => fetchItems(currentPage - 1)} disabled={currentPage === 1} bg='transparent' _hover={{shadow: "base"}}>
+//                 <Icon as={FaArrowAltCircleLeft} boxSize="6" />
+//               </Button>
+//               <Text display='none'>Page {currentPage}</Text>
+//               <Button bg='transparent' _hover={{shadow: "base"}} onClick={() => fetchItems(currentPage + 1)} disabled={items.length < ITEMS_PER_PAGE || endItemIndex >= totalProducts}>
+//                 <Icon as={FaArrowAltCircleRight} boxSize="6" />
+//               </Button>
+//             </Box>
+//           </>
+//         )}
+//       </VStack>
+//     </MainLayout>
+//   );
+// };
+
+// export default ListofItemsComp;
