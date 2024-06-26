@@ -1,16 +1,13 @@
-import { Box, Flex, Spacer, Link, IconButton, useDisclosure } from '@chakra-ui/react';
+import { Box, Flex, Spacer, Link, IconButton, useDisclosure, Collapse } from '@chakra-ui/react';
 import { CgClose } from 'react-icons/cg';
 import { IoMenuSharp } from 'react-icons/io5';
-import { motion } from 'framer-motion';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
 
-const MotionBox = motion(Box);
-
 const Navbar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -47,18 +44,18 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Box bg="white" color="black" className='sub-titles' width='full' h={["60px", '70px', '80px']} position="fixed" w='full' top="0" zIndex="999">
-      <Flex alignItems="center" h='100%' px={['5','6', '7', '8', "10"]} justifyContent="space-between">
+    <Box bg="white" color="black" className='sub-titles' width='full' h={["60px", '70px', '80px']} position="fixed" top="0" zIndex="1000">
+      <Flex alignItems="center" h='100%' px={['5', '6', '7', '8', "5rem"]} justifyContent="space-between">
         <Box fontSize={['x-large', 'xx-large']} className='logo'>
           <Link href="/" fontWeight="bold">CUT2FIT-MODA</Link>
         </Box>
         <Spacer />
-        <Box display={{ base: 'none', md: 'block' }} fontSize={['md','lg']} fontWeight='600'>
-          <Link href="#" mr="8">Home</Link>
-          <Link href="#" mr="8">Products</Link>
+        <Box display={{ base: 'none', md: 'block' }} fontSize={['md', 'lg']} fontWeight='600'>
+          <Link href="/" mr="8">Home</Link>
+          <Link href="/products" mr="8">Products</Link>
           {isAdmin && <Link href="/admin" mr="8">Admin</Link>}
           {!currentUser && <Link href="/login" mr="8">Login</Link>}
-          <Link href="#">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </Box>
         <IconButton
           display={{ base: 'flex', md: 'none' }}
@@ -68,25 +65,18 @@ const Navbar = () => {
           color='white'
           aria-label="Toggle navigation"
           icon={isOpen ? <CgClose size='24' /> : <IoMenuSharp size='20' />}
-          onClick={isOpen ? onClose : onOpen}
+          onClick={onToggle}
         />
       </Flex>
-      <MotionBox
-        initial={{ opacity: 0, translateY: -10 }}
-        animate={{ opacity: isOpen ? 1 : 0, translateY: isOpen ? 0 : -10 }}
-        transition={{ duration: 0.3 }}
-        mt="0"
-        w='full'
-        display={{ base: 'block', md: 'none' }}
-      >
-        <Box bg='white' w='full' px="10" pb='40px' fontSize={['md','lg', 'x-large']} fontWeight='600' pt='40px' textAlign='center'>
-          <Link href="#" display="block" mb="4">Home</Link>
-          <Link href="#" display="block" mb="4">Products</Link>
+      <Collapse in={isOpen} animateOpacity>
+        <Box bg='white' w='full' px="10" pb='40px' fontSize={['md', 'lg', 'x-large']} fontWeight='600' pt='40px' textAlign='center'>
+          <Link href="/" display="block" mb="4">Home</Link>
+          <Link href="/products" display="block" mb="4">Products</Link>
           {isAdmin && <Link href="/admin" display="block" mb="4">Admin</Link>}
           {!currentUser && <Link href="/login" display="block" mb="4">Login</Link>}
-          <Link href="#" display="block">Contact</Link>
+          <Link href="/contact" display="block">Contact</Link>
         </Box>
-      </MotionBox>
+      </Collapse>
     </Box>
   );
 };

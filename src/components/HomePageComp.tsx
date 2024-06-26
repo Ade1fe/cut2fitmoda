@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Box, Flex, Heading, Text, Button, Image, Icon, FormControl, Input, Stack } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaTruck, FaWhatsapp } from 'react-icons/fa';
-import { BrowseCategories, Products } from '.';
+import { BrowseCategories, Footer,  } from '.';
 import { Link } from 'react-router-dom';
 import { emails, heroImage, newsletterImage } from '../assets';
-import { HiOutlinePhone } from 'react-icons/hi';
-import { MdEmail } from 'react-icons/md';
-import { BiLocationPlus } from 'react-icons/bi';
+
 import { TbNeedleThread } from "react-icons/tb";
 import { SiStylelint } from "react-icons/si";
 
@@ -30,7 +28,7 @@ const HomepageComp = () => {
         <Box position="absolute" px='4' w={['full','full', '70%', 'fit-content']} top="50%" left="50%" transform="translate(-50%, -50%)" zIndex="3">
           <Heading as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>Explore Our Latest Collection</Heading>
           <Text fontSize="xl" mb={['4','5','6','7', "9"]} textShadow='2px 1px black'>Chic head bonnets and accessories await, perfect for adding flair to any outfit. Make your fashion statement or find crafting materials. Shop now and unleash your creativity.</Text>
-          <Button bg='#b07d62' rounded='md' px='4' py='2' size="lg">Shop Now</Button>
+          <Button  rounded='md' py='2'_hover={{bg: "#b07d62"}} colorScheme='blackAlpha' px='3' color='white' size="lg">Shop Now</Button>
         </Box>
       </Box>
 
@@ -59,7 +57,7 @@ const HomepageComp = () => {
             <Box mb="2">
               <Heading fontSize="2xl" mb="2">Designer Profile</Heading>
               <Text fontSize={['md', "lg"]} mb="2">
-                Hi, I'm [Your Name], the creative force behind our brand. Drawing inspiration from diverse cultures and nature, I strive to infuse each piece with meaning and purpose. My creative process is driven by experimentation and curiosity, constantly pushing boundaries to create pieces that resonate with our community.
+                Hi, I'm Oluwadamisi Damilola, the creative force behind our brand. Drawing inspiration from diverse cultures and nature, I strive to infuse each piece with meaning and purpose. My creative process is driven by experimentation and curiosity, constantly pushing boundaries to create pieces that resonate with our community.
               </Text>
             </Box>
             <Box mt='6'>
@@ -123,39 +121,25 @@ const HomepageComp = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     size="md"
+                    // _focusWithin={{border: 'orange.800'}}
                     w='full' py='2' px='4'
                     bg='#f6f6f6'
-                    focusBorderColor="blue.400"
+                    focusBorderColor="white"
+                    border='none'
+                    outline='white'
+                    borderRadius='0'
                     
                   />
                 </FormControl>
-                <Button type="submit" bg='#b07d62' px='4' py='2' color='white' fontWeight='500' size="md">Subscribe</Button>
+                <Button borderRadius='0' type="submit" bg='#b07d62' px='4' py='2' color='white' fontWeight='500' size="md">Subscribe</Button>
               </Box>
             </form>
           </Stack>
         </Box>
       </Box>
 
-      {/* Footer */}
-      <Box mt={['60px', '70px', '80px', '90px']} maxW="1340px" mx='auto' mb='20px' px={[4,4,4,4,2,0]}  textAlign='center' display={['block','block', 'flex']} gap='4' justifyContent='space-between' alignItems='center'>
-      <Text fontSize="sm" color="gray.500" display={['none', 'none', 'block']}>&copy; 2023 - 2024, All Rights Reserved</Text>
-      <Box mt="4" display="flex" flexDirection={["column", 'row']} flexWrap='wrap'  justifyContent={['center']} alignItems="center" gap={['2', '4', '6']}>
-        <Text display="flex" alignItems="center" fontSize={['sm']}>
-          <Icon as={HiOutlinePhone} mr="2" boxSize='6' color='#b07d62' />
-          <Text as='span'>+2349024386013, +2349038257434</Text>
-        </Text>
-        <Text display="flex" alignItems="center">
-          <Icon as={MdEmail} mr="2" boxSize='6' color='#b07d62' />
-          <Text as='span'>addypearl09@gmail.com</Text>
-        </Text>
-        <Text display="flex" alignItems="center">
-          <Icon as={BiLocationPlus} mr="2" boxSize='6' color='#b07d62' />
-          <Text as='span'>04 Bode Edun Estate, Lagos Nigeria</Text>
-        </Text>
-      </Box>
-      <Text fontSize="sm" color="gray.500" mt='18' display={['block', 'block', 'none']}>&copy; 2023 - 2024, All Rights Reserved</Text>
-    </Box>
-
+    
+    <Footer />
     </Box>
   );
 };

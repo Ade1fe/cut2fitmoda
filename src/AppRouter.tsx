@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { getAuth, User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from './firebase';
-import { AdminPage, HomePage } from './pages';
+import { AdminPage, HomePage, ListofItemsComp, ProductPage } from './pages';
 import { Login, Signup } from './components';
 
 const AppRouter = () => {
@@ -45,6 +45,8 @@ const AppRouter = () => {
     { path: '/admin', element: <AdminPage /> },
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <Signup /> },
+    { path: '/products', element: <ProductPage /> },
+    { path:"/items/:category", element: <ListofItemsComp />}
   ];
 
   const router = createBrowserRouter(routes);

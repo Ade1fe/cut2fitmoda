@@ -11,7 +11,7 @@ import {
   Icon,
   SimpleGrid,
 } from '@chakra-ui/react';
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaSearch, FaWhatsapp } from 'react-icons/fa';
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaWhatsapp } from 'react-icons/fa';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -29,7 +29,6 @@ const Products: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
-  const [showSearch, setShowSearch] = useState(false);
 
   const productsPerPage = 10;
 
@@ -89,38 +88,22 @@ const Products: React.FC = () => {
 
   return (
     <Box p="3" maxW="1340px" mx="auto" mt='4rem' zIndex='13'>
-       <Flex justify="flex-end" mb="2" align="center">
-      {showSearch && (
-        <Box w={['full', '60%']} p={2} rounded="md" bg="#f6f6f6"   shadow='md'>
-          <Flex align="center">
-            <Icon as={FaSearch} color="gray.500" />
-            <Input
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              p="2"
-              rounded="md"
-              bg="#f6f6f6" 
-              border="none"
-              focusBorderColor="#b07d62"
-              _placeholder={{ color: 'gray.400' }}
-              ml={2} mt='2'
-            />
-          </Flex>
-        </Box>
-      )}
-     <Button
-          onClick={() => setShowSearch(!showSearch)}
-          bg="transparent"
-          color="gray.600"
-          _hover={{ shadow: 'base' }}
-          _focus={{ outline: 'none' }}
-        >
-          <Icon as={FaSearch} boxSize="6" />
-        </Button>
-</Flex>
-    <Box display={['block','block', 'flex']} className="" gap='5'>
-    <Box textAlign="left" w={['full', '100%', '35%']} mb="10" display="flex" flexDir={['row','row', 'column']} overflowX='scroll' gap="3" pb='0.5rem'
+      <Box mb="5" p={2} rounded="md">
+        <Input
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          p="2"
+          rounded="md"
+          bg="gray.50"
+          border='white'
+          shadow='base'
+          focusBorderColor='white'
+          outlineColor="white"
+          w="full"
+        />
+      </Box>
+      <Box textAlign="right" w='full' mb="10" display="flex" overflowX='scroll' gap="3" pb='0.5rem'
         css={{
           scrollbarWidth: 'thin',
           scrollbarColor: '#fff #fff',
@@ -135,44 +118,33 @@ const Products: React.FC = () => {
             borderRadius: '6px',
           },
         }}
-       
       >
-        <Text pl='10px' fontWeight='700'display={['none','none','block']} mt='20px' fontSize={['md']} className="sub-titles">subcategories</Text>
         {categories.map((category) => (
           <Button
             key={category}
             whiteSpace='nowrap'
-            fontWeight='200'
             minW='150px'
-            size='sm'
-            w='150px'
             textTransform='capitalize'
-            _hover={{ shadow: 'base' }}
             onClick={() => setCategoryFilter(category === categoryFilter ? '' : category)}
             bg={category === categoryFilter ? '#b07d62' : 'white'}
             variant="none"
-            color={category === categoryFilter ? '#fff' : '#959494'}
-            borderBottomWidth={[2, 2, 0]}
-            shadow={category === categoryFilter ? 'sm' : ''}
+            color={category === categoryFilter ? '#fff' : '#000'}
+            borderBottomWidth={2}
+            shadow={category === categoryFilter ? 'sm' : 'base'}
             borderBottomColor={category === categoryFilter ? '#b07d62' : '#b07d62'}
-            textAlign={['center','center', 'left']}
-            display={['block','block', 'flex']} justifyContent='flex-start'
-            boxShadow={["sm", 'sm', 'none']}
           >
             {getWordsAfterGreaterThan(category)}
           </Button>
         ))}
       </Box>
 
-      
-   <div className="">
-   <Text p={['20px']} fontSize={['sm',]} fontWeight='300' color='gray.900'>
+      <Text>
           Showing {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, filteredProducts.length)} of {filteredProducts.length} products
         </Text>
-   <SimpleGrid columns={{ base: 2, md: 3, lg: 4,}} spacing="5">
+      <SimpleGrid columns={{ base: 2, md: 3, lg: 4, xl: 5 }} spacing="3">
         {currentProducts.map((product) => (
           <Box key={product.id} shadow='md' overflow='hidden' borderRadius="lg" bg="white">
-            <Image w="full" h={['200px', '230px', '260px', "290px", "350px"]} objectFit="cover" src={product.imageUrl} alt={product.title} />
+            <Image w="full" h={['200px', '230px', '260px', "290px"]} objectFit="cover" src={product.imageUrl} alt={product.title} />
             <Box px="4" py='2'>
               <Text mb="1" fontWeight="bold" fontSize={['md', 'lg']}>
                 {product.title}
@@ -190,19 +162,15 @@ const Products: React.FC = () => {
           </Box>
         ))}
       </SimpleGrid>
-      <Flex mt="10" justifyContent="flex-end" gap='4'  alignItems="center">
-        <Button onClick={prevPage} disabled={currentPage === 1} bg='transparent' _hover={{shadow: "base"}}>
+      <Flex mt="10" justifyContent="space-between" alignItems="center">
+        <Button onClick={prevPage} disabled={currentPage === 1}>
           <Icon as={FaArrowAltCircleLeft} boxSize="6" />
         </Button>
         
-        <Button onClick={nextPage} disabled={currentPage === totalPages} bg='transparent' _hover={{shadow: "base"}}>
+        <Button onClick={nextPage} disabled={currentPage === totalPages}>
           <Icon as={FaArrowAltCircleRight} boxSize="6" />
         </Button>
       </Flex>
-   </div>
-    </Box>
-   
-    
     </Box>
   );
 };
