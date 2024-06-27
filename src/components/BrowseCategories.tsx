@@ -1,5 +1,5 @@
 import { Box, Button, Image, Text } from "@chakra-ui/react"
-import { collarshirt, headband2, headbon, native2, nativeattriea, pants2, pantsimg,  productImage3,  shirt2, shirtimg, vintage } from "../assets"
+import { collarshirt, headband2, headbon, native2, nativeattriea, pants2, pantsimg,  shirt2, shirtimg, vintage } from "../assets"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

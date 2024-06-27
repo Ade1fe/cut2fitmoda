@@ -189,7 +189,7 @@
 import { useEffect, useState } from 'react';
 import {
   Box, Table, TableContainer, Thead, Tbody, Tr, Th, Td, TableCaption,
-  Spinner, Center, Alert, AlertIcon, IconButton, Image, Input, Button, Flex
+  Spinner, Center, Alert, AlertIcon, IconButton, Image, Input, Flex
 } from '@chakra-ui/react';
 import { EditIcon, DeleteIcon, CheckIcon, CloseIcon, SearchIcon } from '@chakra-ui/icons';
 import Header from './Header';

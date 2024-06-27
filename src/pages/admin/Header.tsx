@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import {
-  Box, Flex, Spacer, Link, IconButton, useDisclosure, Collapse, Icon
+  Box, Flex, Spacer, Link, IconButton, useDisclosure, Collapse,
 } from '@chakra-ui/react';
 import {  IoMenuSharp } from 'react-icons/io5';
 

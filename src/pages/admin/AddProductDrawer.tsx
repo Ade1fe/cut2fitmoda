@@ -1,6 +1,5 @@
 import React from 'react';
-import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Box, Button, Icon } from '@chakra-ui/react';
-import { FaMarsAndVenus } from 'react-icons/fa6';
+import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Button, Icon } from '@chakra-ui/react';
 import AddProductPage from '../../components/AddProductPage';
 import { AddIcon } from '@chakra-ui/icons';
 

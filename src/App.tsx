@@ -1,7 +1,7 @@
 
 
 import { useEffect,  } from 'react';
-import { ChakraBaseProvider, ChakraProvider,  } from '@chakra-ui/react';
+import { ChakraProvider,  } from '@chakra-ui/react';
 import { auth, onAuthStateChanged } from './firebase';
 import AppRouter from './AppRouter';
 import './index.css';
