@@ -111,7 +111,7 @@ const CartDrawer = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Your Cart</DrawerHeader>
-          <DrawerBody>
+          <DrawerBody p={['2','3']}>
             {cartItems.length === 0 ? (
               <Text>Your cart is empty.</Text>
             ) : (
@@ -120,16 +120,19 @@ const CartDrawer = () => {
                   <Box
                     key={item.id}
                     bg="white"
-                    p={4}
+                    p={[2, 4]}
                     shadow="md"
                     borderRadius="md"
                   >
-                    <Flex align="center">
+                    <Flex align="center" fontSize={['xs', 'sm']} >
                       <Image src={item.imageUrl} alt={item.title} w="50px" h="50px" borderRadius="md" mr={4} />
                       <Text noOfLines={1} flex="1">{item.title}</Text>
                       <HStack spacing={2}>
                         <Button
                           size="sm"
+                          bg="white"
+                          shadow='base'
+                          _hover={{bg: "#ddd"}}
                           onClick={() =>
                             updateQuantity(item.id, item.quantity - 1)
                           }
@@ -139,7 +142,10 @@ const CartDrawer = () => {
                         </Button>
                         <Text>{item.quantity}</Text>
                         <Button
-                          size="sm"
+                         size="sm"
+                         bg="white"
+                         shadow='base'
+                         _hover={{bg: "#ddd"}}
                           onClick={() =>
                             updateQuantity(item.id, item.quantity + 1)
                           }
@@ -149,6 +155,9 @@ const CartDrawer = () => {
                         <Spacer />
                         <Text>₦{item.price * item.quantity}</Text>
                         <IconButton
+                         bg="white"
+                         shadow='base'
+                         _hover={{bg: "#ddd"}}
                           aria-label="Remove Item"
                           icon={<FaTrash />}
                           onClick={() => removeFromCart(item.id)}
@@ -166,8 +175,8 @@ const CartDrawer = () => {
                     <Text fontWeight="bold">₦{calculateTotal()}</Text>
                   </Flex>
                 </Box>
-                <Button onClick={clearCart}>Clear Cart</Button>
-                <Button mb='1rem' onClick={shareOnWhatsApp} leftIcon={<FaWhatsapp />}>
+                <Button bg='white'shadow='md' _hover={{ shadow: "base" }} onClick={clearCart}>Clear Cart</Button>
+                <Button bg='white' shadow='md' _hover={{ shadow: "base" }} mb='1rem' onClick={shareOnWhatsApp} leftIcon={<FaWhatsapp />}>
                   Checkout on WhatsApp
                 </Button>
               </VStack>

@@ -268,28 +268,26 @@ const ListofItemsComp = () => {
         {loading ? (
           <Spinner />
         ) : filteredProducts.length === 0 ? (
-          <Text>No prroducts match your search.</Text>
-          ) : (
-          <>
+         <>
           <Box px='2' className="" justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
-          <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text>
+          {/* <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text> */}
           <Flex w={['full', '60%']} justify="flex-end" mb="2" align="center" gap='2'>
           {showSearch && (
-          <Box w={['full', '60%']} p={2} rounded="md" bg="#f6f6f6" shadow='md'>
+          <Box w={['full', '60%']} px={2} py='1' rounded="md" bg="#f6f6f6" shadow='md'>
           <Flex align="center" >
           <Icon as={FaSearch} color="gray.500" />
           <Input
           placeholder="Search products..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          p="2"
+          px="2"
           rounded="md"
           bg="#f6f6f6"
           border="none"
           focusBorderColor="#b07d62"
           _placeholder={{ color: 'gray.400' }}
           ml={2}
-          mt='2'
+          // mt='2'
           />
           </Flex>
           </Box>
@@ -305,22 +303,60 @@ const ListofItemsComp = () => {
           </Button>
           </Flex>
           </Box>
-          <SimpleGrid columns={{ base: 2, md: 3, lg: 4, xl: 5 }} spacing="3">
+           <Text>No products match your search.</Text>
+         </>
+          ) : (
+          <>
+          <Box px='2' className="" justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
+          <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text>
+          <Flex w={['full', '60%']} justify="flex-end" mb="2" align="center" gap='2'>
+          {showSearch && (
+          <Box w={['full', '60%']} px={2} py='1' rounded="md" bg="#f6f6f6" shadow='md'>
+          <Flex align="center" >
+          <Icon as={FaSearch} color="gray.500" />
+          <Input
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          px="2"
+          rounded="md"
+          bg="#f6f6f6"
+          border="none"
+          focusBorderColor="#b07d62"
+          _placeholder={{ color: 'gray.400' }}
+          ml={2}
+          // mt='2'
+          />
+          </Flex>
+          </Box>
+          )}
+          <Button
+          onClick={() => setShowSearch(!showSearch)}
+          bg="transparent"
+          color="gray.600"
+          _hover={{ shadow: 'base' }}
+          _focus={{ outline: 'none' }}
+          >
+          <Icon as={FaSearch} boxSize="6" />
+          </Button>
+          </Flex>
+          </Box>
+          <SimpleGrid columns={{ base: 2, md: 3, lg: 4, }} spacing="3" fontSize="sm">
           {filteredProducts.map((item) => (
-          <Box key={item.id} shadow='md' overflow='hidden' borderRadius="lg" bg="white"  pos='relative'>
+          <Box key={item.id} bg="white"  pos='relative' fontSize={['xs', "sm"]} _hover={{shadow: "base"}}>
           <Image w="full" h={['200px', '230px', '260px', "290px", "350px"]} objectFit="cover" src={item.imageUrl} alt={item.title} />
-          <Box px="4" py='2'>
-          <Text noOfLines={1}  mb="1" fontWeight="bold" fontSize={['md', 'lg']}>
+          <Box px="3" py='2'>
+          <Text   mb="1" fontWeight="600" >
           {item.title}
           </Text>
-          <Text mb="1" color="gray.600" fontSize={['sm', 'md']}>
+          <Text mb="1" color="gray.600" >
           Price: #{item.price}
           </Text>
           <Button onClick={() => addToCart(item)} pos='absolute' top='10px' right='10px' bg='white' shadow='lg' _hover={{bg: "orange.900", color: "white"}}> <Icon as={BiCartAdd} boxSize={[4,5, 6]} /> </Button>
-          <Text fontSize="sm" pt={1} color="gray.500" borderTopWidth="2px" borderTopColor="#f4f4f6">
+          <Text fontSize="xs" pt={1} color="gray.500" borderTopWidth="2px" borderTopColor="#f4f4f6">
           {item.category}
           </Text>
-          <Button bg='transparent' _hover={{bg: "none", shadow: "base"}} display='flex' justifyContent='flex-start' w="full" fontSize="sm" onClick={() => shareOnWhatsApp(item.id, item.price, item.title)}>
+          <Button p='1' bg='transparent' _hover={{bg: "none", shadow: "base"}} display='flex' justifyContent='flex-start' w="full" fontSize={["xs", 'sm']} onClick={() => shareOnWhatsApp(item.id, item.price, item.title)}>
           <Icon as={FaWhatsapp} mr="1" color="green.600" /> Send a message
           </Button>
           </Box>
