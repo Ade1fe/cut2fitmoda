@@ -165,7 +165,7 @@ const CartDrawer = () => {
                     </Flex>
                   </Box>
                 ))}
-                <Box bg="white" p={4} shadow="md" borderRadius="md">
+                <Box bg="white" mt='2rem' mb='1rem' p={4} shadow="md" borderRadius="md">
                   <Flex align="center">
                     <Text flex="1" fontWeight="bold">
                       Total
@@ -173,8 +173,8 @@ const CartDrawer = () => {
                     <Text fontWeight="bold">₦{calculateTotal()}</Text>
                   </Flex>
                 </Box>
-                <Button bg='white'shadow='md' _hover={{ shadow: "base" }} onClick={clearCart}>Clear Cart</Button>
-                <Button bg='white' shadow='md' _hover={{ shadow: "base" }} mb='1rem' onClick={shareOnWhatsApp} leftIcon={<FaWhatsapp />}>
+                <Button bg='white' mb='0.5rem' _hover={{ shadow: "base" }} onClick={clearCart}>Clear Cart</Button>
+                <Button bg='white' mb='2rem'   _hover={{ shadow: "base" }} onClick={shareOnWhatsApp} leftIcon={<FaWhatsapp />}>
                   Checkout on WhatsApp
                 </Button>
               </VStack>

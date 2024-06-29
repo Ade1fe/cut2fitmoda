@@ -1,4 +1,5 @@
 
+
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Box, VStack, Text, Image, Spinner, Menu, MenuButton, MenuList, MenuItem, SimpleGrid, Button, Icon, Flex, Input, useToast } from '@chakra-ui/react';
@@ -31,8 +32,9 @@ const ListofItemsComp = () => {
       return;
     }
 
-    const decodedCategory = categoryParam ? decodeURIComponent(categoryParam).replace(/-/g, ' ') : ''; // Handle categoryParam being undefined
-    setCurrentCategory(decodedCategory); // Set current category with replaced dashes
+    const decodedCategory = categoryParam ? decodeURIComponent(categoryParam) : '';
+    setCurrentCategory(decodedCategory); // Set current category without replacing dashes
+    
     fetchItems(1);
 
     const fetchSubcategories = async () => {
@@ -88,7 +90,8 @@ const ListofItemsComp = () => {
   const fetchItems = async (page: number) => {
     setLoading(true);
     try {
-      const decodedCategory = categoryParam ? decodeURIComponent(categoryParam).replace(/-/g, ' ') : ''; // Handle categoryParam being undefined
+      // const decodedCategory = categoryParam ? decodeURIComponent(categoryParam).replace(/-/g, ' ') : ''; // Handle categoryParam being undefined
+      const decodedCategory = categoryParam ? decodeURIComponent(categoryParam) : '';
       let q: any;
       if (decodedCategory.includes(' > ')) {
         q = query(
@@ -380,3 +383,75 @@ const ListofItemsComp = () => {
           };
           
           export default ListofItemsComp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
