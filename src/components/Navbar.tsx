@@ -85,7 +85,7 @@ const Navbar = () => {
       <Collapse in={isOpen} animateOpacity>
         <Box bg="white" display='grid' w="full" px="10" pb="40px" fontSize={['md', 'lg', 'x-large']} fontWeight="600" pt="40px" textAlign="center">
         <Link href="/products"  style={isActive('/products')}>All Products</Link>
-          <Link href="/items/Native-Wears"  style={isActive('/items/Native-Wears')}>Native Wears</Link>
+          <Link href="/items/Native Wears"  style={isActive('/items/Native Wears')}>Native Wears</Link>
           {isAdmin && <Link href="/admin"  style={isActive('/admin')}>Admin</Link>}
           <Link href="/items/Dresses"  style={isActive('/items/Dresses')}>Dress</Link>
           <Link href="/items/Accessories"  style={isActive('/items/Accessories')}>Accessories</Link>
