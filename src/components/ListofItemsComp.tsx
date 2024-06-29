@@ -234,8 +234,8 @@ const ListofItemsComp = () => {
 
   return (
     <MainLayout>
-      <Box mb='3rem' mt='5rem' bg="#f6f6f6" py='3rem' px={['2','4','8','14','6rem']} className="" color='#949494' fontSize={['sm','md']}>
-        <Breadcrumb spacing="8px" separator={<RxSlash color='#b07d62' />}>
+      <Box mb='3rem' className='texts' mt='5rem' bg="#f6f6f6" py='3rem' px={['2','4','8','14','6rem']}  color='#949494' fontSize={['sm','md']}>
+        <Breadcrumb  className='sub-titles' spacing="8px" separator={<RxSlash color='#b07d62' />}>
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
           </BreadcrumbItem>
@@ -272,7 +272,7 @@ const ListofItemsComp = () => {
           <Spinner />
         ) : filteredProducts.length === 0 ? (
          <>
-          <Box px='2' className="" justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
+          <Box px='2' className='sub-titles' justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
           {/* <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text> */}
           <Flex w={['full', '60%']} justify="flex-end" mb="2" align="center" gap='2'>
           {showSearch && (
@@ -310,7 +310,7 @@ const ListofItemsComp = () => {
          </>
           ) : (
           <>
-          <Box px='2' className="" justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
+          <Box px='2' className='sub-titles'justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
           <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text>
           <Flex w={['full', '60%']} justify="flex-end" mb="2" align="center" gap='2'>
           {showSearch && (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Flex, Heading, Text, Button, Image, Icon, FormControl, Input, Stack } from '@chakra-ui/react';
+import { Box, Flex, Text, Button, Image, Icon, FormControl, Input, Stack } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaTruck, FaWhatsapp } from 'react-icons/fa';
 import { BrowseCategories, Footer,  } from '.';
 import { Link } from 'react-router-dom';
@@ -26,7 +26,7 @@ const HomepageComp = () => {
           <Image h={['full']} w={['full']} objectFit='cover' src={heroImage} alt="Hero Image" mb="8" mx="auto" zIndex="0" />
         </Box>
         <Box position="absolute" px='4' w={['full','full', '70%', 'fit-content']} top="50%" left="50%" transform="translate(-50%, -50%)" zIndex="3">
-          <Heading as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>Explore Our Latest Collection</Heading>
+          <Text as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>Explore Our Latest Collection</Text>
           <Text fontSize="xl" mb={['4','5','6','7', "9"]} textShadow='2px 1px black'>Chic head bonnets and accessories await, perfect for adding flair to any outfit. Make your fashion statement or find crafting materials. Shop now and unleash your creativity.</Text>
           <Button  rounded='md' py='2'_hover={{bg: "#b07d62"}} colorScheme='blackAlpha' px='3' color='white' size="lg">Shop Now</Button>
         </Box>
@@ -34,7 +34,7 @@ const HomepageComp = () => {
 
       {/* Product Grid */}
       <Box py="16" px={['4','5', '6']} mt={['2rem', '4rem', '6rem', '8rem']}>
-        <Heading as="h2" fontSize={['3xl','3xl', '4xl', "5xl"]} textAlign='center' mb={['2', '4', '6', "8"]}  className='sub-titles' textShadow='2px 1px #b07d62'>Browse Our Collection</Heading>
+        <Text as="h2" fontSize={['3xl','3xl', '4xl', "5xl"]} textAlign='center' mb={['2', '4', '6', "8"]}  className='sub-titles' textShadow='2px 1px #b07d62'>Browse Our Collection</Text>
         {/* <Products/> */}
         <BrowseCategories />
       </Box>
@@ -49,19 +49,19 @@ const HomepageComp = () => {
           <Text pos={["absolute"]} display={['none', 'none', 'block']} top={40} right='30%' as="h2" fontSize={[ 'xx-large',  '100px']} className='sub-titles' textShadow='2px 1px #b07d62'>About us</Text>
           <Box className=""  flex='1' mt={[ '2rem', '2rem', '12rem', '12rem']}>
             <Box mb="2">
-              <Heading fontSize="2xl" mb="2">Brand Story</Heading>
+              <Text fontSize="2xl" mb="2">Brand Story</Text>
               <Text fontSize={['md', "lg"]} mb="4">
                 Our journey began with a commitment to redefine fashion through inclusivity and sustainability. Rooted in our belief that fashion should empower, not exclude, we create timeless pieces with transparency and ethical practices. Join us as we continue to inspire change in the fashion industry.
               </Text>
             </Box>
             <Box mb="2">
-              <Heading fontSize="2xl" mb="2">Designer Profile</Heading>
+              <Text fontSize="2xl" mb="2">Designer Profile</Text>
               <Text fontSize={['md', "lg"]} mb="2">
                 Hi, I'm Oluwadamisi Damilola, the creative force behind our brand. Drawing inspiration from diverse cultures and nature, I strive to infuse each piece with meaning and purpose. My creative process is driven by experimentation and curiosity, constantly pushing boundaries to create pieces that resonate with our community.
               </Text>
             </Box>
             <Box mt='6'>
-              <Heading fontSize="2xl" mb="2">Press and Media</Heading>
+              <Text fontSize="2xl" mb="2">Press and Media</Text>
               <Text fontSize={['md', "lg"]} mb="2">
                 We're honored to have been featured in numerous publications and collaborated with esteemed partners. Explore our press highlights and media coverage to discover more about our brand's journey and impact.
               </Text>
@@ -108,7 +108,7 @@ const HomepageComp = () => {
         </Box>
         <Box flex="1"  ml={[0,0,4]}>
           <Stack spacing={[2, 3,4,5,6]}>
-            <Heading as="h1" fontSize={['3xl','3xl', '4xl', "5xl"]} fontWeight='600' mt={['30px']} className='sub-titles' textShadow='2px 1px #b07d62'>Join Our Newsletter</Heading>
+            <Text as="h1" fontSize={['3xl','3xl', '4xl', "5xl"]} fontWeight='600' mt={['30px']} className='sub-titles' textShadow='2px 1px #b07d62'>Join Our Newsletter</Text>
             <Text fontSize="lg" color="gray.600">
               Stay informed with our weekly newsletter! Join thousands of subscribers who receive updates on the latest news, featured articles, and upcoming events. We promise not to spam your inbox, just quality content delivered straight to you.
             </Text>
