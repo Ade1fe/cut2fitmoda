@@ -157,7 +157,7 @@ const Products: React.FC = () => {
           </BreadcrumbItem>
    </Breadcrumb>
    </Box>
-    <Box p="3" maxW="1340px" mx="auto" mt='4.6rem' zIndex='13'>
+    <Box p="3" maxW="1340px" mx="auto" mt='2.6rem' zIndex='13'>
           
       <Flex justify="flex-end" mb="2" align="center">
         {showSearch && (

@@ -344,10 +344,10 @@ const ListofItemsComp = () => {
           </Button>
           </Flex>
           </Box>
-          <SimpleGrid columns={{ base: 2, md: 3, lg: 4, }} spacing="3" fontSize="sm">
+          <SimpleGrid columns={{ base: 1, sm: 2 , md: 3, lg: 4 }}spacing="3" fontSize="sm">
           {filteredProducts.map((item) => (
           <Box key={item.id} bg="white"  pos='relative' fontSize={['xs', "sm"]} _hover={{shadow: "base"}}>
-          <Image w="full" h={['200px', '230px', '260px', "290px", "350px"]} objectFit="cover" src={item.imageUrl} alt={item.title} />
+          <Image w="full" h={['370px', '270px', '300px', "330px", "350px"]} objectFit="cover" src={item.imageUrl} alt={item.title} />
           <Box px="3" py='2'>
           <Text   mb="1" fontWeight="600" >
           {item.title}
