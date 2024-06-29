@@ -1,30 +1,34 @@
-import React from 'react';
-import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Button, Icon } from '@chakra-ui/react';
+
+import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Button, useDisclosure } from '@chakra-ui/react';
 import AddProductPage from '../../components/AddProductPage';
-import { AddIcon } from '@chakra-ui/icons';
 
-interface AddProductDrawerProps {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-}
 
-const AddProductDrawer: React.FC<AddProductDrawerProps> = ({ isOpen, onOpen, onClose }) => {
+
+
+const AddProductDrawer = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  // const btnRef = React.useRef()
   return (
     <>
-      <Button onClick={onOpen} bg="transparent" _hover={{ shadow: "base" }}>
-        <Icon as={AddIcon} boxSize={[6, 7]} />
+      <Button shadow='md' bg='transparent' _hover={{shadow: "base"}} onClick={onOpen}>
+       Add Product
       </Button>
-      <Drawer placement="left" onClose={onClose} isOpen={isOpen} size={['md', 'lg']}>
+      <Drawer
+        isOpen={isOpen}
+        placement='right'
+        onClose={onClose}
+        size={['md', 'lg']}
+        // finalFocusRef={btnRef}
+      >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">Add a product</DrawerHeader>
-          <DrawerBody p='2' >
-            {/* <Box > */}
-              <AddProductPage />
-            {/* </Box> */}
+          <DrawerHeader>Add a new product</DrawerHeader>
+
+          <DrawerBody>
+         <AddProductPage />
           </DrawerBody>
+
         </DrawerContent>
       </Drawer>
     </>

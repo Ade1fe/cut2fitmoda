@@ -91,6 +91,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from './firebase';
 import { AdminPage, HomePage, ListofItemsComp, ProductPage } from './pages';
 import { Login, Signup } from './components';
+import AddProductPage from './components/AddProductPage';
 
 const AppRouter = () => {
   const [, setCurrentUser] = useState<User | null>(null);
@@ -131,7 +132,8 @@ const AppRouter = () => {
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <Signup /> },
     { path: '/products', element: <ProductPage /> },
-    { path: '/items/:category', element: <ListofItemsComp /> } // Dynamic segment with :category
+    { path: '/items/:category', element: <ListofItemsComp /> },
+    { path: '/add-product', element: <AddProductPage /> }
   ];
 
   // Create browser router with routes

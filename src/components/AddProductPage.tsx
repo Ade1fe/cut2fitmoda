@@ -138,14 +138,15 @@ const AddProductPage: React.FC = () => {
     // <Container centerContent>
       <Box
         p={8}
-        w='full'
+        // maxW='600px'
         // borderWidth={1}
         borderRadius={8}
         // boxShadow="lg"
         // bg="green"
+        // overflow='scroll'
       >
         <VStack spacing={4}>
-          <Heading as="h1" size="xl" color="teal.500">
+          <Heading as="h1" size="xl" color="black">
             Add New Product
           </Heading>
           <form onSubmit={handleSubmit} style={{ width: '100%' }}>
@@ -218,9 +219,11 @@ const AddProductPage: React.FC = () => {
             </FormControl>
             <Button
               type="submit"
-              colorScheme="teal"
+              bg="#b07d62"
               width="full"
               mt={4}
+              color='white'
+              _hover={{bg: "orange.800"}}
               isDisabled={uploading}
             >
               {uploading ? <Spinner size="sm" /> : 'Add Product'}

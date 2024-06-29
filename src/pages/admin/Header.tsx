@@ -17,7 +17,7 @@ const Header = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
   const { isOpen, onToggle } = useDisclosure();
-  const { isOpen: isDrawerOpen, onOpen: onDrawerOpen, onClose: onDrawerClose } = useDisclosure();
+  // const { isOpen: isDrawerOpen, onOpen: onDrawerOpen, onClose: onDrawerClose } = useDisclosure();
 
   useEffect(() => {
     const auth = getAuth();
@@ -57,12 +57,12 @@ const Header = () => {
           <Link href="/">CUT2FIT-MODA</Link>
         </Box>
         <Spacer />
-        <Box display={{ base: 'none', lg: 'block' }} fontSize="md" fontWeight="600">
+        <Box display={{ base: 'none', lg: 'flex' }} alignItems='center' fontSize="md" fontWeight="600">
           <Link href="/products" mr="8" style={isActive('/')}>Home</Link>
           {isAdmin && <Link href="/admin" mr="8" style={isActive('/admin')}>Admin</Link>}
+          <AddProductDrawer />
           <Link ml="8" _hover={{ textDecoration: "none" }}> <Note /> </Link>
           {!currentUser && <Link href="/login" mr="8" style={isActive('/login')}>Login</Link>}
-          <AddProductDrawer isOpen={isDrawerOpen} onOpen={onDrawerOpen} onClose={onDrawerClose} />
         </Box>
         <IconButton
           display={{ base: 'flex', lg: 'none' }}
@@ -81,7 +81,7 @@ const Header = () => {
           {isAdmin && <Link href="/admin" mb='3' style={isActive('/admin')}>Admin</Link>}
           <Link mb='3' _hover={{ textDecoration: "none" }}> <Note /> </Link>
           {!currentUser && <Link mb='3'  href="/login"  style={isActive('/login')}>Login</Link>}
-          <AddProductDrawer isOpen={isDrawerOpen} onOpen={onDrawerOpen} onClose={onDrawerClose} />
+          <AddProductDrawer />
         </Box>
       </Collapse>
     </Box>
