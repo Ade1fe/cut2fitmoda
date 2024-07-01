@@ -27,8 +27,8 @@ const HomepageComp = () => {
         </Box>
         <Box position="absolute" px='4' w={['full','full', '70%', 'fit-content']} top="50%" left="50%" transform="translate(-50%, -50%)" zIndex="3">
           <Text as="h1" fontSize="4xl" mb="4" className='sub-titles' textShadow='2px 1px #b07d62'>Explore Our Latest Collection</Text>
-          <Text fontSize="xl" mb={['4','5','6','7', "9"]} textShadow='2px 1px black'>Chic head bonnets and accessories await, perfect for adding flair to any outfit. Make your fashion statement or find crafting materials. Shop now and unleash your creativity.</Text>
-          <Button  rounded='md' py='2'_hover={{bg: "#b07d62"}} colorScheme='blackAlpha' px='3' color='white' size="lg">Shop Now</Button>
+          <Text fontSize="xl" mb={['4','5','6','7', "9"]} textShadow='2px 1px black'>Discover chic fashion essentials and accessories, perfect for adding flair to any outfit. Make your fashion statement with our curated selection or find crafting materials. </Text>
+          <Link  to= "/products"><Text w='fit-content' mx='auto'  bg="rgba(0,0,0,0.5)" rounded='md' py='2'_hover={{bg: "#b07d62", border: "#b07d62"}} colorScheme='blackAlpha' px='3' color='white' size="lg">  Shop now </Text></Link>
         </Box>
       </Box>
 

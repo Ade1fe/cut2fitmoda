@@ -54,7 +54,7 @@ const Signup: React.FC = () => {
         duration: 5000,
         isClosable: true,
       });
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       toast({
         title: 'Error creating account.',

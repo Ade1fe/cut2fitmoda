@@ -28,7 +28,7 @@ const BrowseCategories: React.FC = () => {
                 <Image w={['300px']} h={['340px']} src={hoveredImage === nativeattriea ? nativeattriea : native2} />
                 <Box bg='rgba(0,0,0,0.5)' color='white' pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
                     <Text fontSize={['md','lg', 'x-large']}> Native Wears </Text>
-                    <Button p='2' mt='0.5rem' color='white' shadow='md' bg='transparent' borderWidth='1px' onClick={() => handleShopNowClick("Native Wears")} rounded='10px' borderColor='white'>Shop Now</Button>
+                    <Button p='2' _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md"}}  mt='0.5rem' color='white' shadow='md' bg='transparent' borderWidth='1px' onClick={() => handleShopNowClick("Native Wears")} rounded='10px' borderColor='white'>Shop Now</Button>
                 </Box>
             </Box>
             <Box className="" pos='relative' width={['250px']}
@@ -37,7 +37,7 @@ const BrowseCategories: React.FC = () => {
                 <Image w={['300px']} h={['340px']} src={hoveredImage === shirtimg ? shirtimg : shirt2} />
                 <Box bg='rgba(255,255,255,0.5)' color='black' pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
                     <Text fontSize={['md','lg', 'x-large']}>T-Shirts and Shirts</Text>
-                    <Button p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("T-Shirts and Shirts")}>Shop Now</Button>
+                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("T-Shirts and Shirts")}>Shop Now</Button>
                 </Box>
             </Box>
             <Box className="" pos='relative' width={['250px']}
@@ -46,7 +46,7 @@ const BrowseCategories: React.FC = () => {
                 <Image w={['300px']} h={['340px']} src={hoveredImage === pantsimg ? pantsimg : pants2} />
                 <Box bg='rgba(255,255,255,0.5)' color='black' pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
                     <Text fontSize={['md','lg', 'x-large']}> Shorts and Pants</Text>
-                    <Button p='2' mt='0.5rem' color='black' onClick={() => handleShopNowClick("Shorts and Pants")} shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black'>Shop Now</Button>
+                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='black' onClick={() => handleShopNowClick("Shorts and Pants")} shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black'>Shop Now</Button>
                 </Box>
             </Box>
             <Box className="" pos='relative' width={['250px']}
@@ -55,7 +55,7 @@ const BrowseCategories: React.FC = () => {
                 <Image w={['300px']} h={['340px']} src={hoveredImage === vintage ? vintage : collarshirt} />
                 <Box bg='rgba(255,255,255,0.5)' color='black' pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
                     <Text fontSize={['md','lg', 'x-large']}> Shirts and Vintage </Text>
-                    <Button p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("Shirts and Vintage")}>Shop Now</Button>
+                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("Shirts and Vintage")}>Shop Now</Button>
                 </Box>
             </Box>
             <Box className="" pos='relative' width={['250px']}
@@ -64,7 +64,7 @@ const BrowseCategories: React.FC = () => {
                 <Image w={['300px']} h={['340px']} src={hoveredImage === headbon ? headbon : headband2} />
                 <Box bg='rgba(255,255,255,0.5)' color='black' pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
                     <Text fontSize={['md','lg', 'x-large']}>Head accessories</Text>
-                    <Button p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("Head accessories")}>Shop Now</Button>
+                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("Head accessories")}>Shop Now</Button>
                 </Box>
             </Box>
         </Box>

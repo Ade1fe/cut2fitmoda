@@ -29,7 +29,7 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 import { db, auth } from '../firebase'; 
-import { BiCartDownload } from 'react-icons/bi';
+import { SlBag } from 'react-icons/sl';
 
 const CartDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -103,7 +103,7 @@ const CartDrawer = () => {
 
   return (
     <>
-      <Button onClick={onOpen} bg='transparent' _hover={{shadow: "base"}}> <Icon as={BiCartDownload} boxSize={[6, 7]} /> </Button>
+      <Button onClick={onOpen} bg='transparent' _hover={{shadow: "base"}}> <Icon as={SlBag} boxSize={[6, 7]} /> </Button>
       <Drawer placement="right" onClose={onClose} isOpen={isOpen} size={['md', 'lg']}>
         <DrawerOverlay />
         <DrawerContent>

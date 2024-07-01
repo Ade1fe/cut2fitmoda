@@ -121,6 +121,8 @@ const Products: React.FC = () => {
         imageUrl: product.imageUrl
       });
 
+      console.log(newCartItemRef);
+
       toast({
         title: 'Success',
         description: 'Product added to cart successfully!',
