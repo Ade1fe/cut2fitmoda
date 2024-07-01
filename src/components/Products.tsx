@@ -141,6 +141,11 @@ const Products: React.FC = () => {
     }
   };
 
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(price);
+  };
+
   return (
     <div className="">
       <Box mb='3rem' mt={'5rem'} bg="#f6f6f6" py='3rem' px={['2','4','8','14','7rem']} className="" color='#949494' fontSize={['sm','md']}>
@@ -247,7 +252,7 @@ const Products: React.FC = () => {
                         {product.title}
                       </Text>
                       <Text mb="1" color="gray.600">
-                        Price: #{product.price}
+                      Price: {formatPrice(product.price)}
                       </Text>
                       <Button onClick={() => addToCart(product)} pos='absolute' top='10px' right='10px' bg='white' shadow='lg' _hover={{ bg: "orange.900", color: "white" }}>
                         <Icon as={BiCartAdd} boxSize={[4, 5, 6]} />

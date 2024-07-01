@@ -232,6 +232,12 @@ const ListofItemsComp = () => {
   const startItemIndex = (currentPage - 1) * ITEMS_PER_PAGE + 1;
   const endItemIndex = Math.min(startItemIndex + items.length - 1, startItemIndex + ITEMS_PER_PAGE - 1);
 
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(price);
+  };
+
+
   return (
     <MainLayout>
       <Box mb='3rem' className='texts' mt='5rem' bg="#f6f6f6" py='3rem' px={['2','4','8','14','6rem']}  color='#949494' fontSize={['sm','md']}>
@@ -353,7 +359,7 @@ const ListofItemsComp = () => {
           {item.title}
           </Text>
           <Text mb="1" color="gray.600" >
-          Price: #{item.price}
+          Price: {formatPrice(item.price)}
           </Text>
           <Button onClick={() => addToCart(item)} pos='absolute' top='10px' right='10px' bg='white' shadow='lg' _hover={{bg: "orange.900", color: "white"}}> <Icon as={BiCartAdd} boxSize={[4,5, 6]} /> </Button>
           <Text fontSize="xs" pt={1} color="gray.500" borderTopWidth="2px" borderTopColor="#f4f4f6">

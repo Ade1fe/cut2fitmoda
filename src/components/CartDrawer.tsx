@@ -93,6 +93,11 @@ const CartDrawer = () => {
     return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
   };
 
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(price);
+  };
+
+
   const shareOnWhatsApp = () => {
     const message = cartItems.map((item) => (
       `Product ID: ${item.id}\nName: ${item.title}\nPrice: ₦${item.price}\nQuantity: ${item.quantity}\nTotal Price: ₦${item.price * item.quantity}\n`
@@ -122,9 +127,9 @@ const CartDrawer = () => {
                     shadow="md"
                     borderRadius="md"
                   >
-                    <Flex align="center" fontSize={['xs', 'sm']} >
-                      <Image src={item.imageUrl} alt={item.title} w="50px" h="50px" borderRadius="md" mr={4} />
-                      <Text noOfLines={1} flex="1">{item.title}</Text>
+                    <Flex align="center" gap={['2','0']} flexDir={['column','row']} fontSize={['xs', 'sm']} >
+                      <Image src={item.imageUrl} alt={item.title} height={['auto', '50px']} w={['100px', "50px"]} borderRadius="md" mr={4} />
+                      <Text flex="1">{item.title}</Text>
                       <HStack spacing={2}>
                         <Button
                           size="sm"
@@ -151,7 +156,7 @@ const CartDrawer = () => {
                           +
                         </Button>
                         <Spacer />
-                        <Text>₦{item.price * item.quantity}</Text>
+                        <Text>{formatPrice(item.price * item.quantity)}</Text>
                         <IconButton
                          bg="white"
                          shadow='base'
@@ -170,7 +175,7 @@ const CartDrawer = () => {
                     <Text flex="1" fontWeight="bold">
                       Total
                     </Text>
-                    <Text fontWeight="bold">₦{calculateTotal()}</Text>
+                    <Text fontWeight="bold">{formatPrice(calculateTotal())}</Text>
                   </Flex>
                 </Box>
                 <Button bg='white' mb='0.5rem' _hover={{ shadow: "base" }} onClick={clearCart}>Clear Cart</Button>
