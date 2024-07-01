@@ -1,21 +1,15 @@
-import { useState } from 'react';
-import { Box, Flex, Text, Button, Image, Icon, FormControl, Input, Stack } from '@chakra-ui/react';
+
+import { Box, Flex, Text, Image, Icon,} from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaTruck, FaWhatsapp } from 'react-icons/fa';
-import { BrowseCategories, Footer,  } from '.';
+import { BrowseCategories, Footer, NewLetter,  } from '.';
 import { Link } from 'react-router-dom';
-import { emails, heroImage, newsletterImage } from '../assets';
+import { heroImage, newsletterImage } from '../assets';
 
 import { TbNeedleThread } from "react-icons/tb";
 import { SiStylelint } from "react-icons/si";
 
 const HomepageComp = () => {
-  const [email, setEmail] = useState('');
 
-  const handleSubmit = (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
-    console.log('Submitted email:', email);
-    setEmail('');
-  };
   
   return (
     <Box mt='4rem'  className='texts'>
@@ -102,41 +96,7 @@ const HomepageComp = () => {
       </Box>
 
       {/* Newsletter Signup */}
-      <Box maxW="1340px" mx="auto" px={[6,6,4,4,2,0]} display={['block','block', "flex"]} alignItems='center'  mb='10rem'>
-        <Box flex="1">
-          <Image src={emails} alt="Newsletter Image" maxW="100%" />
-        </Box>
-        <Box flex="1"  ml={[0,0,4]}>
-          <Stack spacing={[2, 3,4,5,6]}>
-            <Text as="h1" fontSize={['3xl','3xl', '4xl', "5xl"]} fontWeight='600' mt={['30px']} className='sub-titles' textShadow='2px 1px #b07d62'>Join Our Newsletter</Text>
-            <Text fontSize="lg" color="gray.600">
-              Stay informed with our weekly newsletter! Join thousands of subscribers who receive updates on the latest news, featured articles, and upcoming events. We promise not to spam your inbox, just quality content delivered straight to you.
-            </Text>
-            <form onSubmit={handleSubmit}>
-              <Box display="flex">
-                <FormControl w='full'>
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    size="md"
-                    // _focusWithin={{border: 'orange.800'}}
-                    w='full' py='2' px='4'
-                    bg='#f6f6f6'
-                    focusBorderColor="white"
-                    border='none'
-                    outline='white'
-                    borderRadius='0'
-                    
-                  />
-                </FormControl>
-                <Button borderRadius='0' type="submit" bg='#b07d62' px='4' py='2' color='white' fontWeight='500' size="md">Subscribe</Button>
-              </Box>
-            </form>
-          </Stack>
-        </Box>
-      </Box>
+     <NewLetter />
 
     
     <Footer />

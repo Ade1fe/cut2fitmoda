@@ -1,4 +1,5 @@
-// export {default as Advert} from './Navbar';
+// export {default as NewLetter} from './Navbar';
+export {default as NewLetter}  from './NewLetter';
 export {default as Advert} from './Advert';
 export {default as WhatsApp}  from './WhatsApp';
 export {default as Note}from './Note';
