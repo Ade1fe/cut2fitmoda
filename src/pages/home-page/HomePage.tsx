@@ -1,11 +1,13 @@
 import { Box } from '@chakra-ui/react'
-import { HomepageComp, Navbar,  } from '../../components'
+import { Advert, HomepageComp, Navbar, WhatsApp,  } from '../../components'
 
 const HomePage = () => {
   return (
     <Box>
      <div className=""><Navbar /> </div>
      <div className=""> <HomepageComp /> </div>
+     <WhatsApp />
+     <Advert />
     </Box>
   )
 }

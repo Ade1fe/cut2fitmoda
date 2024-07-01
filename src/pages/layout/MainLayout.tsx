@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Box } from "@chakra-ui/react";
-import { Footer, Navbar } from "../../components";
+import { Advert, Footer, Navbar, WhatsApp } from "../../components";
 
 
 interface MainLayoutProps {
@@ -13,6 +13,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <Navbar />
       <Box>{children}</Box>
       <Footer />
+      <WhatsApp />
+     <Advert />
     </Box>
   );
 };

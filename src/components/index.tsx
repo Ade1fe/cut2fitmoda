@@ -1,4 +1,6 @@
-// export {default as Note} from './Navbar';
+// export {default as Advert} from './Navbar';
+export {default as Advert} from './Advert';
+export {default as WhatsApp}  from './WhatsApp';
 export {default as Note}from './Note';
 export {default as CartDrawer}  from './CartDrawer';
 export {default as Footer}from './Footer';
