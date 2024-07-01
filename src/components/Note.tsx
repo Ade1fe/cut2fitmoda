@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Heading,
-  Text,
+import { Box, Text,
   Button,
   Drawer,
   DrawerOverlay,
