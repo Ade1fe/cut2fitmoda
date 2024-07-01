@@ -53,9 +53,9 @@ const BrowseCategories: React.FC = () => {
                 onMouseEnter={() => handleHover(vintage)}
                 onMouseLeave={handleLeave}>
                 <Image w={['300px']} h={['340px']} src={hoveredImage === vintage ? vintage : collarshirt} />
-                <Box bg='rgba(255,255,255,0.5)' color='black' pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
+                <Box bg='rgba(0,0,0,0.5)' color='white'  pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
                     <Text fontSize={['md','lg', 'x-large']}>Accessories </Text>
-                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("Shirts and Vintage")}>Shop Now</Button>
+                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='white' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='color' onClick={() => handleShopNowClick("Shirts and Vintage")}>Shop Now</Button>
                 </Box>
             </Box>
             <Box className="" pos='relative' width={['250px']}
