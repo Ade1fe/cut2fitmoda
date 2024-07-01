@@ -29,7 +29,7 @@ const Advert = () => {
           borderRadius="10px"
           shadow="md"
           position="fixed"
-          bottom={4}
+          bottom={6}
           right={4}
           zIndex={999}
         >
