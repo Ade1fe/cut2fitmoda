@@ -113,10 +113,10 @@ const CartDrawer = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Your Cart</DrawerHeader>
+          <DrawerHeader>Cart</DrawerHeader>
           <DrawerBody p={['2','3']}>
             {cartItems.length === 0 ? (
-              <Text>Your cart is empty.</Text>
+              <Text>Cart is empty.</Text>
             ) : (
               <VStack align="stretch" spacing={4}>
                 {cartItems.map((item) => (
