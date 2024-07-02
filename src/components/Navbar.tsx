@@ -77,7 +77,7 @@ const Navbar = () => {
           <Link href="/items/Accessories" mr="5" style={isActive('/items/Accessories')}>Accessories</Link>
           <Link href="/items/Skirts" mr="5" style={isActive('/items/Skirts')}>Skirts</Link>
           <Link href="/items/Two Piece" mr="5" style={isActive('/items/Two Piece')}>Two Piece</Link>
-          <Link href="/items/Nighties" mr="5" style={isActive('/items/Nighties')}>Skirts</Link>
+          <Link href="/items/Nighties" mr="5" style={isActive('/items/Nighties')}>Nighties</Link>
           <Link href="/items/Head Accessories" style={isActive('/items/Head Accessories')}>Head Accessories</Link>
           {!currentUser && <Link href="/login" ml="8" style={isActive('/login')}>Login</Link>}
           <Link ml="8" _hover={{textDecoration: "none"}}> <CartDrawer /> </Link>
@@ -106,7 +106,7 @@ const Navbar = () => {
               <Link href="/items/Accessories" py="2" h="fit-content" style={isActive('/items/Accessories')}>Accessories</Link>
               <Link href="/items/Skirts" my="2" style={isActive('/items/Skirts')}>Skirts</Link>
           <Link href="/items/Two Piece" my="2" style={isActive('/items/Two Piece')}>Two Piece</Link>
-          <Link href="/items/Nighties" my="2" style={isActive('/items/Nighties')}>Skirts</Link>
+          <Link href="/items/Nighties" my="2" style={isActive('/items/Nighties')}>Nighties</Link>
               <Link href="/items/Head-Accessories" py="2" h="fit-content" style={isActive('/items/Head-Accessories')}>Head Accessories</Link>
               <Link py="2" h="fit-content" _hover={{textDecoration: "none"}}> <CartDrawer /> </Link>
               <Link py="2" h="fit-content" _hover={{textDecoration: "none"}}> <Note /> </Link>
