@@ -1,4 +1,5 @@
 
+
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Box, VStack, Text, Image, Spinner, Menu, MenuButton, MenuList, MenuItem, SimpleGrid, Button, Icon, Flex, Input, useToast } from '@chakra-ui/react';
@@ -31,8 +32,9 @@ const ListofItemsComp = () => {
       return;
     }
 
-    const decodedCategory = categoryParam ? decodeURIComponent(categoryParam).replace(/-/g, ' ') : ''; // Handle categoryParam being undefined
-    setCurrentCategory(decodedCategory); // Set current category with replaced dashes
+    const decodedCategory = categoryParam ? decodeURIComponent(categoryParam) : '';
+    setCurrentCategory(decodedCategory); // Set current category without replacing dashes
+    
     fetchItems(1);
 
     const fetchSubcategories = async () => {
@@ -88,7 +90,8 @@ const ListofItemsComp = () => {
   const fetchItems = async (page: number) => {
     setLoading(true);
     try {
-      const decodedCategory = categoryParam ? decodeURIComponent(categoryParam).replace(/-/g, ' ') : ''; // Handle categoryParam being undefined
+      // const decodedCategory = categoryParam ? decodeURIComponent(categoryParam).replace(/-/g, ' ') : ''; // Handle categoryParam being undefined
+      const decodedCategory = categoryParam ? decodeURIComponent(categoryParam) : '';
       let q: any;
       if (decodedCategory.includes(' > ')) {
         q = query(
@@ -124,13 +127,16 @@ const ListofItemsComp = () => {
           description: string;
           imageUrl: string;
           price: number;
+          category: string;
+
         };
         return {
           id: doc.id,
           title: data.title,
           description: data.description,
           imageUrl: data.imageUrl,
-          price: data.price
+          price: data.price,
+          category: data.category,
         };
       });
 
@@ -229,10 +235,16 @@ const ListofItemsComp = () => {
   const startItemIndex = (currentPage - 1) * ITEMS_PER_PAGE + 1;
   const endItemIndex = Math.min(startItemIndex + items.length - 1, startItemIndex + ITEMS_PER_PAGE - 1);
 
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(price);
+  };
+
+
   return (
     <MainLayout>
-      <Box mb='3rem' mt='5rem' bg="#f6f6f6" py='3rem' px={['2','4','8','14','6rem']} className="" color='#949494' fontSize={['sm','md']}>
-        <Breadcrumb spacing="8px" separator={<RxSlash color='#b07d62' />}>
+      <Box mb='3rem' className='texts' mt='5rem' bg="#f6f6f6" py='3rem' px={['2','4','8','14','6rem']}  color='#949494' fontSize={['sm','md']}>
+        <Breadcrumb  className='sub-titles' spacing="8px" separator={<RxSlash color='#b07d62' />}>
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
           </BreadcrumbItem>
@@ -269,7 +281,7 @@ const ListofItemsComp = () => {
           <Spinner />
         ) : filteredProducts.length === 0 ? (
          <>
-          <Box px='2' className="" justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
+          <Box px='2' className='sub-titles' justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
           {/* <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text> */}
           <Flex w={['full', '60%']} justify="flex-end" mb="2" align="center" gap='2'>
           {showSearch && (
@@ -307,7 +319,7 @@ const ListofItemsComp = () => {
          </>
           ) : (
           <>
-          <Box px='2' className="" justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
+          <Box px='2' className='sub-titles'justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>
           <Text mb={[4,0]} w={['full', '30%']}>Showing {startItemIndex}-{endItemIndex} of {totalProducts} products</Text>
           <Flex w={['full', '60%']} justify="flex-end" mb="2" align="center" gap='2'>
           {showSearch && (
@@ -341,16 +353,16 @@ const ListofItemsComp = () => {
           </Button>
           </Flex>
           </Box>
-          <SimpleGrid columns={{ base: 2, md: 3, lg: 4, }} spacing="3" fontSize="sm">
+          <SimpleGrid columns={{ base: 1, sm: 2 , md: 3, lg: 4 }}spacing="3" fontSize="sm">
           {filteredProducts.map((item) => (
           <Box key={item.id} bg="white"  pos='relative' fontSize={['xs', "sm"]} _hover={{shadow: "base"}}>
-          <Image w="full" h={['200px', '230px', '260px', "290px", "350px"]} objectFit="cover" src={item.imageUrl} alt={item.title} />
+          <Image w="full" h={['370px', '270px', '300px', "330px", "350px"]} objectFit="cover" src={item.imageUrl} alt={item.title} />
           <Box px="3" py='2'>
           <Text   mb="1" fontWeight="600" >
           {item.title}
           </Text>
           <Text mb="1" color="gray.600" >
-          Price: #{item.price}
+          Price: {formatPrice(item.price)}
           </Text>
           <Button onClick={() => addToCart(item)} pos='absolute' top='10px' right='10px' bg='white' shadow='lg' _hover={{bg: "orange.900", color: "white"}}> <Icon as={BiCartAdd} boxSize={[4,5, 6]} /> </Button>
           <Text fontSize="xs" pt={1} color="gray.500" borderTopWidth="2px" borderTopColor="#f4f4f6">
@@ -380,14 +392,6 @@ const ListofItemsComp = () => {
           };
           
           export default ListofItemsComp;
-
-
-
-
-
-
-
-
 
 
 

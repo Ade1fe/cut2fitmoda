@@ -278,7 +278,9 @@ const ListofItemsComp = () => {
 
       <VStack mb='8rem' mt={4} align="stretch" spacing={4} maxW='1340px' mx='auto' px='2'>
         {loading ? (
-          <Spinner />
+            <Flex justify="center" align="center" height="200px">
+              <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='black' size={['xl',]}/>
+          </Flex>
         ) : filteredProducts.length === 0 ? (
          <>
           <Box px='2' className='sub-titles' justifyContent={['','space-between']} alignItems='center' w={['full']} display={['block', 'flex']} gap={['20px']} alignContent='center'>

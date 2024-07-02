@@ -69,22 +69,22 @@ const Navbar = () => {
         <Box fontSize={['x-large', 'xx-large']} className="logo">
           <Link href="/" fontWeight="bold">CUT2FIT-MODA</Link>
         </Box>
-        <Flex display={{ base: 'none', lg: 'flex' }} fontSize={['md']} fontWeight="600" alignItems='center'>
-          <Link href="/products" mr="8" style={isActive('/products')}>All Products</Link>
-          <Link href="/items/Native Wears" mr="8" style={isActive('/items/Native Wears')}>Native Wears</Link>
-          {isAdmin && <Link href="/admin" mr="8" style={isActive('/admin')}>Admin</Link>}
-          <Link href="/items/Dresses" mr="8" style={isActive('/items/Dresses')}>Dress</Link>
-          <Link href="/items/Accessories" mr="8" style={isActive('/items/Accessories')}>Accessories</Link>
-          <Link href="/items/Skirts" mr="8" style={isActive('/items/Skirts')}>Skirts</Link>
-          <Link href="/items/Two Piece" mr="8" style={isActive('/items/Two Piece')}>Two Piece</Link>
-          <Link href="/items/Nighties" mr="8" style={isActive('/items/Nighties')}>Skirts</Link>
+        <Flex display={{ base: 'none', xl: 'flex' }} fontSize={['md']} fontWeight="600" alignItems='center'>
+          <Link href="/products" mr="5" style={isActive('/products')}>All Products</Link>
+          <Link href="/items/Native Wears" mr="5" style={isActive('/items/Native Wears')}>Native Wears</Link>
+          {isAdmin && <Link href="/admin" mr="5" style={isActive('/admin')}>Admin</Link>}
+          <Link href="/items/Dresses" mr="5" style={isActive('/items/Dresses')}>Dress</Link>
+          <Link href="/items/Accessories" mr="5" style={isActive('/items/Accessories')}>Accessories</Link>
+          <Link href="/items/Skirts" mr="5" style={isActive('/items/Skirts')}>Skirts</Link>
+          <Link href="/items/Two Piece" mr="5" style={isActive('/items/Two Piece')}>Two Piece</Link>
+          <Link href="/items/Nighties" mr="5" style={isActive('/items/Nighties')}>Skirts</Link>
           <Link href="/items/Head Accessories" style={isActive('/items/Head Accessories')}>Head Accessories</Link>
           {!currentUser && <Link href="/login" ml="8" style={isActive('/login')}>Login</Link>}
           <Link ml="8" _hover={{textDecoration: "none"}}> <CartDrawer /> </Link>
           <Link  _hover={{textDecoration: "none"}}> <Note /> </Link>
         </Flex>
         <IconButton
-          display={{ base: 'flex', lg: 'none' }}
+          display={{   base: 'flex', xl: 'none' }}
           p="0"
           w="0"
           bg="#b07d62"
