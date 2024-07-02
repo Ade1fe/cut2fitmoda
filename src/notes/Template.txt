@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Flex, Input, Text, Image, Icon, SimpleGrid, useToast, Breadcrumb, BreadcrumbItem, BreadcrumbLink, } from '@chakra-ui/react';
+import { Box, Button, Flex, Input, Text, Image, Icon, SimpleGrid, useToast, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Spinner } from '@chakra-ui/react';
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaSearch, FaWhatsapp } from 'react-icons/fa';
 import { collection, getDocs, query, where, Timestamp, addDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
@@ -23,22 +22,30 @@ const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [showSearch, setShowSearch] = useState(false);
+  const [loading, setLoading] = useState(false);
   const toast = useToast();
 
   const productsPerPage = 9;
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const productsCollection = collection(db, 'products');
-      const snapshot = await getDocs(productsCollection);
-      const productsData = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as Product[];
-      setProducts(productsData);
+      setLoading(true);
+      try {
+        const productsCollection = collection(db, 'products');
+        const snapshot = await getDocs(productsCollection);
+        const productsData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Product[];
+        setProducts(productsData);
 
-      const uniqueCategories = Array.from(new Set(productsData.map(product => product.category)));
-      setCategories(uniqueCategories);
+        const uniqueCategories = Array.from(new Set(productsData.map(product => product.category)));
+        setCategories(uniqueCategories);
+      } catch (error) {
+        console.error("Error fetching products: ", error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchProducts();
@@ -141,7 +148,6 @@ const Products: React.FC = () => {
     }
   };
 
-
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(price);
   };
@@ -238,7 +244,11 @@ const Products: React.FC = () => {
             <Text p={['20px']} fontSize={['sm']} fontWeight='300' color='gray.900'>
               Showing {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, filteredProducts.length)} of {filteredProducts.length} products
             </Text>
-            {filteredProducts.length === 0 ? (
+            {loading ? (
+              <Flex justify="center" align="center" height="200px">
+                <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='black' size={['xl',]}/>
+              </Flex>
+            ) : filteredProducts.length === 0 ? (
               <Text p="20px" fontSize="lg" fontWeight="bold" color="red.500">
                 No products found for this search.
               </Text>

@@ -225,7 +225,10 @@ const Products: React.FC = () => {
                 w='150px'
                 textTransform='capitalize'
                 _hover={{ shadow: 'base' }}
-                onClick={() => setCategoryFilter(category === categoryFilter ? '' : category)}
+                onClick={() => {
+                  setCategoryFilter(category === categoryFilter ? '' : category);
+                  setCurrentPage(1);  // Reset current page to 1 when category changes
+                }}
                 bg={category === categoryFilter ? '#b07d62' : 'white'}
                 variant="none"
                 color={category === categoryFilter ? '#fff' : '#959494'}
@@ -295,3 +298,4 @@ const Products: React.FC = () => {
 };
 
 export default Products;
+
