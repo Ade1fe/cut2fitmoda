@@ -127,13 +127,16 @@ const ListofItemsComp = () => {
           description: string;
           imageUrl: string;
           price: number;
+          category: string;
+
         };
         return {
           id: doc.id,
           title: data.title,
           description: data.description,
           imageUrl: data.imageUrl,
-          price: data.price
+          price: data.price,
+          category: data.category,
         };
       });
 

@@ -25,6 +25,7 @@ type Categories = {
   [key: string]: string[];
 };
 
+
 const categories: Categories = {
   "Native Wears": ["Ankara", "Aso Oke", "Dashiki", "Kente"],
   "Shorts and Pants": ["Cargo Pants", "Chinos", "Denim Shorts", "Joggers"],
@@ -32,6 +33,9 @@ const categories: Categories = {
   "Head Accessories": ["Caps", "Hats", "Headbands", "Scarves"],
   "Dresses":["Casual dresses", "Glam dresses", "Maxi dresses", "Shirt dresses", "Work dresses", "Wrap dresses"],
   "Accessories": ["Bags","Belts","Bracelets","Earrings", "Necklaces", "Rings", ""],
+  "Skirts": ["A-Line", "Pencil", "Maxi", "Mini", "Wrap"],
+  "Two Piece": ["Pant Set", "Skirt Set", "Short Set", "Loungewear"],
+  "Nighties": ["Nightshirts", "Pajama Sets", "Robes","Nightgowns", "Pajama Sets", "Robes", "Chemises", "Babydolls"],
 };
 
 const AddProductPage: React.FC = () => {

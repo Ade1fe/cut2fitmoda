@@ -64,7 +64,7 @@ const BrowseCategories: React.FC = () => {
                 <Image w={['300px']} h={['340px']} src={hoveredImage === headbon ? headbon : headband2} />
                 <Box bg='rgba(255,255,255,0.5)' color='black' pos='absolute' p='1rem' bottom='0px' left='0' w='full' className="">
                     <Text fontSize={['md','lg', 'x-large']}>Head accessories</Text>
-                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("Head accessories")}>Shop Now</Button>
+                    <Button _hover={{bg: "#b07d62", border: "#b07d62", shadow: "md", color: "white"}} p='2' mt='0.5rem' color='black' shadow='md' bg='transparent' borderWidth='1px' rounded='10px' borderColor='black' onClick={() => handleShopNowClick("Head Accessories")}>Shop Now</Button>
                 </Box>
             </Box>
         </Box>
