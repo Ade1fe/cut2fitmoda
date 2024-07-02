@@ -27,7 +27,7 @@ type Categories = {
 
 
 const categories: Categories = {
-  "Native Wears": ["Ankara", "Aso Oke", "Dashiki", "Kente"],
+  "Native Wears": ["Ankara", "Aso Oke", "Dashiki", "Kente", "Senator"],
   "Shorts and Pants": ["Cargo Pants", "Chinos", "Denim Shorts", "Joggers","Trousers", "Track Pants","High-Waisted Pants"],
   "T-Shirts and Shirts": ["Polo Shirts", "Button-Down Shirts", "Tees", "Long Sleeve"],
   "Head Accessories": ["Caps", "Hats", "Headbands", "Scarves"],
