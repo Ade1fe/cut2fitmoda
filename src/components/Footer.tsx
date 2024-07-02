@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div>
         {/* Footer */}
-        <Box mt={['60px', '70px', '80px', '90px']} maxW="1340px" mx='auto' mb='20px' px={[4,4,4,4,2,0]}  textAlign='center' display={['block','block', 'flex']} gap='4' justifyContent='space-between' alignItems='center'>
+        <Box mt={['15rem', '16rem', '17rem', '18rem', '19rem']} maxW="1340px" mx='auto' mb='20px' px={[4,4,4,4,2,0]}  textAlign='center' display={['block','block', 'flex']} gap='4' justifyContent='space-between' alignItems='center'>
       <Text fontSize="sm" color="gray.500" display={['none', 'none', 'block']}>&copy; 2023 - 2024, All Rights Reserved</Text>
       <Box mt="4" display="flex" flexDirection={["column", 'row']} flexWrap='wrap'  justifyContent={['center']} alignItems="center" gap={['2', '4', '6']}>
         <Text display="flex" alignItems="center" fontSize={['sm']}>
